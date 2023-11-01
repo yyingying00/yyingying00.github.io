@@ -1,11 +1,27 @@
 ---
-title: "yyingying00.github.io"
+title: "Yingying Yu"
+image: profile_photo.jpeg
+toc: false
+about: 
+  template: trestles
+  image-shape: round
+  image-width: 20em
+  links: 
+    - text: LinkedIn
+      href: www.linkedin.com/in/yingying-yu-690322242
+    - text: Email
+      href: mailto:yyu109@jhmi.edu
 ---
 
-This is a Quarto website.
+# Welcome!
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+------------------------------------------------------------------------
 
-```{r}
-1 + 1
-```
+Thanks for stopping by Yingying's little corner of the internet!
+
+# Education
+
+------------------------------------------------------------------------
+
+**MHS in Cancer Epidemiology** (2024) Johns Hopkins Bloomberg School of Public Health\
+**BA in Biology** (2022) New York University
