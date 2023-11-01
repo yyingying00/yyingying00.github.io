@@ -2,8 +2,9 @@
 title: "About"
 ---
 
-About this site
+# Education
 
-```{r}
-1 + 1
-```
+------------------------------------------------------------------------
+
+**MHS in Epidemiology** (2024) Johns Hopkins University\
+**BA in Biology** (2022) New York University
