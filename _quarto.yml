@@ -9,7 +9,6 @@ website:
       - href: index.qmd
         text: Home
       - href: about.qmd
-        text: Who am I
       - Example analysis.qmd
 
 format:

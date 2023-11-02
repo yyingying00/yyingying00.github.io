@@ -2,9 +2,8 @@
 title: "About"
 ---
 
-# Education
+My journey has been fueled by a deep-rooted passion for making a meaningful impact in the field of oncology. My undergraduate major in biology laid the foundation for my initial career aspirations. However, over time, I found myself increasingly drawn to the world of data science and bioinformatics. I realized the potential for data-driven insights to transform our understanding of complex biological processes.
 
-------------------------------------------------------------------------
+Currently, I'm pursuing a master's degree in epidemiology, which has provided me with valuable knowledge and skills to better comprehend the broader context of disease patterns and public health. Through several hands-on experiences, I've become proficient in handling RNA sequencing data and utilizing numerous R packages related to genome-wide analysis. My goal now is to merge my biological expertise with data science and epidemiology to contribute to advancements in oncology research.
 
-**MHS in Epidemiology** (2024) Johns Hopkins University\
-**BA in Biology** (2022) New York University
+I look forward to connecting with like-minded individuals who share my passion for driving positive change in the oncology field.
