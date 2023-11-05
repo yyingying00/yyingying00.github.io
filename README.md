@@ -1,4 +1,3 @@
-# yyingying00.github.io
 
 # :wave: Welcome!
 
