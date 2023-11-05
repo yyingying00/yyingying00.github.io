@@ -2,11 +2,12 @@
 title: "Example analysis"
 author: "Yingying Yu"
 date: "2023-11-1"
+bibliography: references.bib
 ---
 
 # Introduction
 
-![](menopause.png){style="float:right;" width="170"} Menopause is a natural biological event triggered by the decline in ovarian follicular function and a reduction in circulating blood estrogen levels. According to the World Health Organization (WHO), the majority of women experience menopause in their forties and fifties, typically defined as twelve consecutive months without menstruation, with no other underlying cause. Notably, during pregnancy, women do not have their regular menstrual period for approximately nine months due to the profound impact on ovarian activity.
+![](menopause.png){style="float:right;" width="170"} Menopause is a natural biological event triggered by the decline in ovarian follicular function and a reduction in circulating blood estrogen levels [@greendale1999]. According to the World Health Organization [@WHO], the majority of women experience menopause in their forties and fifties, typically defined as twelve consecutive months without menstruation, with no other underlying cause. Notably, during pregnancy, women do not have their regular menstrual period for approximately nine months due to the profound impact on ovarian activity.
 
 ------------------------------------------------------------------------
 
@@ -14,13 +15,17 @@ date: "2023-11-1"
 
 The objective of this study is to investigate whether the age at which natural menopause occurs is influenced by the number of childbirths among American women. This research utilizes data from the 2017-18 National Health and Nutrition Examination Survey (NHANES). Our hypothesis posits that an increased age at menopause is associated with a higher number of childbirths.
 
+::: column-margin
+This analysis is conducted for researchers, doctors, or anyone who is interested in the risk factors of menopause.
+:::
+
 ------------------------------------------------------------------------
 
 # Methodology
 
 ### Study population
 
-Performed by the National Center for Health Statistics (NCHS) within the Centers for Disease Control and Prevention (CDC), the NHANES is a program of cross-sectional studies collecting data regarding the health and nutritional status of Americans. This study is an analysis of the 2017-2018 data for female participants located in different counties across the nation, including demographics, socioeconomic, body measurements, reproductive health-related information gathered by interviews and physical examinations. The dataset can be download [here](https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2017).
+Performed by the National Center for Health Statistics (NCHS) within the Centers for Disease Control and Prevention (CDC), the NHANES is a program of cross-sectional studies collecting data regarding the health and nutritional status of Americans. This study is an analysis of the 2017-2018 data for female participants located in different counties across the nation, including demographics, socioeconomic, body measurements, reproductive health-related information gathered by interviews and physical examinations. The dataset can be download on the [NHANES @NHANES] website.
 
 ### Measures
 
@@ -60,15 +65,58 @@ colnames(data) <- c('ID','age_meno','livebirths','pills','smoke','drink','bmi',
 head(data,5)
 ```
 
+::: {.callout-note title="Data Dictionary"}
+The variables on the above data set are:
+
+| Name       | Meaning                |
+|------------|------------------------|
+| ID         | Participant ID         |
+| age_meno   | Menopausal age         |
+| livebirths | Number of deliveries   |
+| pills      | Oral contraceptive use |
+| smoke      | Smoking status         |
+| drink      | Drinking status        |
+| bmi        | BMI index              |
+| age_sur    | Age at survey time     |
+| race       | Race/ethnicity         |
+:::
+
 ```{r}
+#| warning: false
 # drop NA and weird values
 library("tidyr")
-data <- drop_na(data)
+library("dplyr")
+data <- drop_na(data) 
 data <- data[data$age_meno != 999, ] # exclude those dont know when is their last period
 data <- data[data$pills != 9, ] # exclude those dont know whether they ever taken birth control pills
 data <- data[data$education != 9, ] # exclude those dont know their education level
+data <- arrange(data)
 head(data,5)
 ```
+```{r}
+# Quick look on menopausal age and number of delivery
+data %>% 
+  group_by(livebirths) %>% 
+  summarise(mean = mean(age_meno)) 
+```
+
+Looks like there is a linear relationship between menopausal age and number of deliveries, ignoring women with no childbirth. Let's see if this is still true if we group all the women by number of childbirth.
+
+```{r}
+data <- data %>%
+  mutate(newgroup = case_when(
+    livebirths <= 0 ~ "0",
+    between(livebirths, 1, 2) ~ "1-2",
+    between(livebirths, 3, 5) ~ "3-5",
+    livebirths >= 6 ~ ">=6",
+    TRUE ~ NA_character_))
+
+data %>% 
+  group_by(newgroup) %>% 
+  summarise(mean = mean(age_meno))
+```
+
+
 
 ```{r}
 # Make categorical variables
@@ -80,11 +128,6 @@ data$education[data$education == 1] <- 2
 data$education <- factor(data$education, labels = c("Less Than High School Diploma",
                                                     "High School Diploma","College","College Graduate Or Above"))
 
-data$lbgroup <- data$livebirths
-data$lbgroup[data$livebirths <= 2] <- "<=2"
-data$lbgroup[data$livebirths > 2 & data$livebirths < 6 ] <- "3-5"
-data$lbgroup[data$livebirths >= 6] <- ">=6"
-data$lbgroup <- factor(data$lbgroup, levels=c("<=2","3-5",">=6"))
 ```
 
 # Results
@@ -100,7 +143,8 @@ library(ggplot2)
 ggplot(data=data) +
   geom_bar(mapping=aes(x=age_sur)) +
   geom_vline(xintercept = mean(data$age_sur), color = "red", linetype = "dashed", size = 1) +
-  labs(title = "Distribution of Participant Age at survey ", x = "Age", y = "Frequency")
+  labs(title = "Figure 1: Distribution of Participant Age at survey ", 
+       x = "Age", y = "Frequency", caption = "Created by Yinging Yu")
 ```
 
 ::: callout-note
@@ -112,16 +156,16 @@ Note that the frequency of 80 years old is extremely high because it includes 80
 ggplot(data = data) + 
   geom_point(mapping = aes(x = age_meno, y = livebirths)) + 
   facet_wrap(~ race, nrow = 2) +
-  labs(title = "Distribution of Menopausal Age and Livebirths by Race/Ethnicity",
-       x = "Menopausal Age", y = "Number of Livebirths") 
+  labs(title = "Figure 2: Distribution of Menopausal Age and Livebirths by Race/Ethnicity",
+       x = "Menopausal Age", y = "Number of Livebirths",caption = "Created by Yinging Yu") 
 ```
 
 ```{r}
 #| warning: false
 ggplot(data = data) + 
   geom_smooth(mapping = aes(x = bmi, y = age_meno)) +
-  labs(title = "Distribution of BMI and Menopausal Age", x = "BMI", 
-       y = "Menopausal Age") 
+  labs(title = "Figure 3: Distribution of BMI and Menopausal Age", x = "BMI", 
+       y = "Menopausal Age",caption = "Created by Yinging Yu") 
 ```
 
 ```{r}
@@ -141,14 +185,13 @@ label(data$bmi) <- "BMI"
 units(data$bmi) <- "kg/m2"
 caption  <- "Table 1. Characteristics of the study population according to number of livebirths"
 footnote <- "Note: Continuous variables were displayed as mean (SD) and categorical variables were displayed as number (percentage)."
-mytable <- table1(~ age_sur + race + education + drink + smoke + pills + bmi | lbgroup, data=data, footnote=footnote, caption=caption, overall=c(left="Total"))
+mytable <- table1(~ age_sur + race + education + drink + smoke + pills + bmi | newgroup, data=data, footnote=footnote, caption=caption, overall=c(left="Total"))
 mytable
 ```
 
-
 ### Regression Analysis
 
-Univariate and multivariate analyses were performed with simple and multiple linear regression, respectively. In univariate analysis, “umber of childbirth”, “age at survey”, and “smoking status” show statistically significance with our outcome variable. For race, only the subgroups “other Hispanic” and “Asian” are significant relative to the reference group. For education level, “high school diploma” and “college graduate or above” rose to the level of statistical significance.  
+Univariate and multivariate analyses were performed with simple and multiple linear regression, respectively. In univariate analysis, "umber of childbirth", "age at survey", and "smoking status" show statistically significance with our outcome variable. For race, only the subgroups "other Hispanic" and "Asian" are significant relative to the reference group. For education level, "high school diploma" and "college graduate or above" rose to the level of statistical significance.
 
 This association continued to appear after adjustment in the full model. After comparing between different combinations of covariates, the model with the lowest AIC score were picked as our final adjusted model shown in Table 2 below. In multivariable linear regression analyses, the number of childbirth was associated with the age of menopause, in which each additional childbirth is associated with a 0.34 (95% CI: 0.02, 0.66) increase of the menopausal age, while holding all other covariates constant. Future research will be needed to validify this association and explore the underlining biological mechanism.
 
@@ -169,7 +212,20 @@ tbl_merge <- tbl_merge(tbls = list(t1,t2),
 tbl_merge 
 ```
 
+# Discussion
+
+Univariate and multivariate analyses were performed with simple and multiple linear regression, respectively. In univariate analysis, "umber of childbirth", "age at survey", and "smoking status" show statistically significance with our outcome variable. For race, only the subgroups "other Hispanic" and "Asian" are significant relative to the reference group. For education level, "high school diploma" and "college graduate or above" rose to the level of statistical significance.
+
+This association continued to appear after adjustment in the full model. In multivariable linear regression analyses, the number of childbirth was associated with the age of menopause, in which each additional childbirth is associated with a 0.34 (95% CI: 0.02, 0.66) increase of the menopausal age, while holding all other covariates constant. Future research will be needed to validify this association and explore the underlining biological mechanism.
 
 
+---
+# Function summary
+
+| Package name | Functions used                                                 |
+|--------------|----------------------------------------------------------------|
+| `tidyr`      | `drop_na`                                                      |
+| `dplyr`      | `arrange` `mutate` `group_by` `summarise`                      |
+| `ggplot2`    | `geom_bar` `geom_vline` `geom_point` `facet_wrap` `geom_smooth`|
 
 

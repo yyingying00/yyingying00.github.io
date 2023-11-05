@@ -56,7 +56,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -160,11 +179,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#participant-characteristics" id="toc-participant-characteristics" class="nav-link" data-scroll-target="#participant-characteristics">Participant Characteristics</a></li>
   <li><a href="#regression-analysis" id="toc-regression-analysis" class="nav-link" data-scroll-target="#regression-analysis">Regression Analysis</a></li>
   </ul></li>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">Discussion</a></li>
+  <li><a href="#function-summary" id="toc-function-summary" class="nav-link" data-scroll-target="#function-summary">Function summary</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content page-columns page-full column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -197,19 +218,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p><img src="menopause.png" class="img-fluid" style="float:right;" width="170"> Menopause is a natural biological event triggered by the decline in ovarian follicular function and a reduction in circulating blood estrogen levels. According to the World Health Organization (WHO), the majority of women experience menopause in their forties and fifties, typically defined as twelve consecutive months without menstruation, with no other underlying cause. Notably, during pregnancy, women do not have their regular menstrual period for approximately nine months due to the profound impact on ovarian activity.</p>
+<p><img src="menopause.png" class="img-fluid" style="float:right;" width="170"> Menopause is a natural biological event triggered by the decline in ovarian follicular function and a reduction in circulating blood estrogen levels <span class="citation" data-cites="greendale1999">(<a href="#ref-greendale1999" role="doc-biblioref">Greendale, Lee, and Arriola 1999</a>)</span>. According to the World Health Organization <span class="citation" data-cites="WHO">(<a href="#ref-WHO" role="doc-biblioref">WHO 2021</a>)</span>, the majority of women experience menopause in their forties and fifties, typically defined as twelve consecutive months without menstruation, with no other underlying cause. Notably, during pregnancy, women do not have their regular menstrual period for approximately nine months due to the profound impact on ovarian activity.</p>
 <hr>
 </section>
-<section id="research-objective" class="level1">
+<section id="research-objective" class="level1 page-columns page-full">
 <h1>Research Objective</h1>
 <p>The objective of this study is to investigate whether the age at which natural menopause occurs is influenced by the number of childbirths among American women. This research utilizes data from the 2017-18 National Health and Nutrition Examination Survey (NHANES). Our hypothesis posits that an increased age at menopause is associated with a higher number of childbirths.</p>
-<hr>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>This analysis is conducted for researchers, doctors, or anyone who is interested in the risk factors of menopause.</p>
+</div></div><hr>
 </section>
 <section id="methodology" class="level1">
 <h1>Methodology</h1>
 <section id="study-population" class="level3">
 <h3 class="anchored" data-anchor-id="study-population">Study population</h3>
-<p>Performed by the National Center for Health Statistics (NCHS) within the Centers for Disease Control and Prevention (CDC), the NHANES is a program of cross-sectional studies collecting data regarding the health and nutritional status of Americans. This study is an analysis of the 2017-2018 data for female participants located in different counties across the nation, including demographics, socioeconomic, body measurements, reproductive health-related information gathered by interviews and physical examinations. The dataset can be download <a href="https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2017">here</a>.</p>
+<p>Performed by the National Center for Health Statistics (NCHS) within the Centers for Disease Control and Prevention (CDC), the NHANES is a program of cross-sectional studies collecting data regarding the health and nutritional status of Americans. This study is an analysis of the 2017-2018 data for female participants located in different counties across the nation, including demographics, socioeconomic, body measurements, reproductive health-related information gathered by interviews and physical examinations. The dataset can be download on the <span class="citation" data-cites="NHANES">(NHANES <a href="#ref-NHANES" role="doc-biblioref">CDC 2019</a>)</span> website.</p>
 </section>
 <section id="measures" class="level3">
 <h3 class="anchored" data-anchor-id="measures">Measures</h3>
@@ -253,14 +277,75 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 5 93719       NA         NA     2    NA    NA   NA      NA   NA        NA</code></pre>
 </div>
 </div>
+<div class="callout callout-style-default callout-note callout-titled" title="Data Dictionary">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Data Dictionary
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The variables on the above data set are:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ID</td>
+<td>Participant ID</td>
+</tr>
+<tr class="even">
+<td>age_meno</td>
+<td>Menopausal age</td>
+</tr>
+<tr class="odd">
+<td>livebirths</td>
+<td>Number of deliveries</td>
+</tr>
+<tr class="even">
+<td>pills</td>
+<td>Oral contraceptive use</td>
+</tr>
+<tr class="odd">
+<td>smoke</td>
+<td>Smoking status</td>
+</tr>
+<tr class="even">
+<td>drink</td>
+<td>Drinking status</td>
+</tr>
+<tr class="odd">
+<td>bmi</td>
+<td>BMI index</td>
+</tr>
+<tr class="even">
+<td>age_sur</td>
+<td>Age at survey time</td>
+</tr>
+<tr class="odd">
+<td>race</td>
+<td>Race/ethnicity</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># drop NA and weird values</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tidyr"</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">drop_na</span>(data)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data[data<span class="sc">$</span>age_meno <span class="sc">!=</span> <span class="dv">999</span>, ] <span class="co"># exclude those dont know when is their last period</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data[data<span class="sc">$</span>pills <span class="sc">!=</span> <span class="dv">9</span>, ] <span class="co"># exclude those dont know whether they ever taken birth control pills</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data[data<span class="sc">$</span>education <span class="sc">!=</span> <span class="dv">9</span>, ] <span class="co"># exclude those dont know their education level</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data,<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"dplyr"</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">drop_na</span>(data) </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data[data<span class="sc">$</span>age_meno <span class="sc">!=</span> <span class="dv">999</span>, ] <span class="co"># exclude those dont know when is their last period</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data[data<span class="sc">$</span>pills <span class="sc">!=</span> <span class="dv">9</span>, ] <span class="co"># exclude those dont know whether they ever taken birth control pills</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data[data<span class="sc">$</span>education <span class="sc">!=</span> <span class="dv">9</span>, ] <span class="co"># exclude those dont know their education level</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">arrange</span>(data)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data,<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     ID age_meno livebirths pills smoke drink  bmi age_sur race education
 1 93705       50          2     1     1     1 31.7      66    4         2
@@ -271,20 +356,59 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make categorical variables</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>race <span class="ot">&lt;-</span> <span class="fu">factor</span>(data<span class="sc">$</span>race, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Mexican American"</span>,<span class="st">"Other Hispanic"</span>,<span class="st">"White"</span>,<span class="st">"Black"</span>,<span class="st">"Asian"</span>,<span class="st">"Multi-Racial"</span>)) <span class="sc">%&gt;%</span> <span class="fu">relevel</span>(data<span class="sc">$</span>race, <span class="at">ref =</span> <span class="st">"Black"</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>drink <span class="ot">&lt;-</span> <span class="fu">factor</span>(data<span class="sc">$</span>drink, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Ever"</span>, <span class="st">"Never"</span>))</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>smoke <span class="ot">&lt;-</span> <span class="fu">factor</span>(data<span class="sc">$</span>smoke, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Ever"</span>, <span class="st">"Never"</span>))</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>pills <span class="ot">&lt;-</span> <span class="fu">factor</span>(data<span class="sc">$</span>pills, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Ever"</span>, <span class="st">"Never"</span>))</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>education[data<span class="sc">$</span>education <span class="sc">==</span> <span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>education <span class="ot">&lt;-</span> <span class="fu">factor</span>(data<span class="sc">$</span>education, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Less Than High School Diploma"</span>,</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>                                                    <span class="st">"High School Diploma"</span>,<span class="st">"College"</span>,<span class="st">"College Graduate Or Above"</span>))</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>lbgroup <span class="ot">&lt;-</span> data<span class="sc">$</span>livebirths</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>lbgroup[data<span class="sc">$</span>livebirths <span class="sc">&lt;=</span> <span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">"&lt;=2"</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>lbgroup[data<span class="sc">$</span>livebirths <span class="sc">&gt;</span> <span class="dv">2</span> <span class="sc">&amp;</span> data<span class="sc">$</span>livebirths <span class="sc">&lt;</span> <span class="dv">6</span> ] <span class="ot">&lt;-</span> <span class="st">"3-5"</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>lbgroup[data<span class="sc">$</span>livebirths <span class="sc">&gt;=</span> <span class="dv">6</span>] <span class="ot">&lt;-</span> <span class="st">"&gt;=6"</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>lbgroup <span class="ot">&lt;-</span> <span class="fu">factor</span>(data<span class="sc">$</span>lbgroup, <span class="at">levels=</span><span class="fu">c</span>(<span class="st">"&lt;=2"</span>,<span class="st">"3-5"</span>,<span class="st">"&gt;=6"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Quick look on menopausal age and number of delivery</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(livebirths) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(age_meno)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 11 × 2
+   livebirths  mean
+        &lt;dbl&gt; &lt;dbl&gt;
+ 1          0  48.5
+ 2          1  43.9
+ 3          2  44.4
+ 4          3  45.2
+ 5          4  44.9
+ 6          5  45.9
+ 7          6  47.5
+ 8          7  47.2
+ 9          8  47.3
+10         10  46  
+11         11  50  </code></pre>
+</div>
+</div>
+<p>Looks like there is a linear relationship between menopausal age and number of deliveries, ignoring women with no childbirth. Let’s see if this is still true if we group all the women by number of childbirth.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">newgroup =</span> <span class="fu">case_when</span>(</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    livebirths <span class="sc">&lt;=</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">"0"</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">between</span>(livebirths, <span class="dv">1</span>, <span class="dv">2</span>) <span class="sc">~</span> <span class="st">"1-2"</span>,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">between</span>(livebirths, <span class="dv">3</span>, <span class="dv">5</span>) <span class="sc">~</span> <span class="st">"3-5"</span>,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    livebirths <span class="sc">&gt;=</span> <span class="dv">6</span> <span class="sc">~</span> <span class="st">"&gt;=6"</span>,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA_character_</span>))</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(newgroup) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(age_meno))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 2
+  newgroup  mean
+  &lt;chr&gt;    &lt;dbl&gt;
+1 0         48.5
+2 1-2       44.2
+3 3-5       45.2
+4 &gt;=6       47.4</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make categorical variables</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>race <span class="ot">&lt;-</span> <span class="fu">factor</span>(data<span class="sc">$</span>race, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Mexican American"</span>,<span class="st">"Other Hispanic"</span>,<span class="st">"White"</span>,<span class="st">"Black"</span>,<span class="st">"Asian"</span>,<span class="st">"Multi-Racial"</span>)) <span class="sc">%&gt;%</span> <span class="fu">relevel</span>(data<span class="sc">$</span>race, <span class="at">ref =</span> <span class="st">"Black"</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>drink <span class="ot">&lt;-</span> <span class="fu">factor</span>(data<span class="sc">$</span>drink, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Ever"</span>, <span class="st">"Never"</span>))</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>smoke <span class="ot">&lt;-</span> <span class="fu">factor</span>(data<span class="sc">$</span>smoke, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Ever"</span>, <span class="st">"Never"</span>))</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>pills <span class="ot">&lt;-</span> <span class="fu">factor</span>(data<span class="sc">$</span>pills, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Ever"</span>, <span class="st">"Never"</span>))</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>education[data<span class="sc">$</span>education <span class="sc">==</span> <span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>education <span class="ot">&lt;-</span> <span class="fu">factor</span>(data<span class="sc">$</span>education, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Less Than High School Diploma"</span>,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>                                                    <span class="st">"High School Diploma"</span>,<span class="st">"College"</span>,<span class="st">"College Graduate Or Above"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -294,14 +418,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="participant-characteristics">Participant Characteristics</h3>
 <p>The mean age of participants the survey was done is 62.7 (SD = 11.3) years old and ranged from 22 to 80. Of the 1189 female participants, most of them are non-Hispanic White (38.7%), have some college experience (33.3%), drink alcohol at some point in their life (85.4%), and never smoke (64.1%). Table 1 below presents specific breakdowns of each variable considered by this study.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot distribution of age</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>data) <span class="sc">+</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>age_sur)) <span class="sc">+</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(data<span class="sc">$</span>age_sur), <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Participant Age at survey "</span>, <span class="at">x =</span> <span class="st">"Age"</span>, <span class="at">y =</span> <span class="st">"Frequency"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot distribution of age</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>data) <span class="sc">+</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>age_sur)) <span class="sc">+</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(data<span class="sc">$</span>age_sur), <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Figure 1: Distribution of Participant Age at survey "</span>, </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Age"</span>, <span class="at">y =</span> <span class="st">"Frequency"</span>, <span class="at">caption =</span> <span class="st">"Created by Yinging Yu"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Example-analysis_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+<p><img src="Example-analysis_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -318,41 +443,41 @@ Note
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> data) <span class="sc">+</span> </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> age_meno, <span class="at">y =</span> livebirths)) <span class="sc">+</span> </span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> race, <span class="at">nrow =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Menopausal Age and Livebirths by Race/Ethnicity"</span>,</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Menopausal Age"</span>, <span class="at">y =</span> <span class="st">"Number of Livebirths"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> data) <span class="sc">+</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> age_meno, <span class="at">y =</span> livebirths)) <span class="sc">+</span> </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> race, <span class="at">nrow =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Figure 2: Distribution of Menopausal Age and Livebirths by Race/Ethnicity"</span>,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Menopausal Age"</span>, <span class="at">y =</span> <span class="st">"Number of Livebirths"</span>,<span class="at">caption =</span> <span class="st">"Created by Yinging Yu"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Example-analysis_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+<p><img src="Example-analysis_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> data) <span class="sc">+</span> </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bmi, <span class="at">y =</span> age_meno)) <span class="sc">+</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of BMI and Menopausal Age"</span>, <span class="at">x =</span> <span class="st">"BMI"</span>, </span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Menopausal Age"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> data) <span class="sc">+</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bmi, <span class="at">y =</span> age_meno)) <span class="sc">+</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Figure 3: Distribution of BMI and Menopausal Age"</span>, <span class="at">x =</span> <span class="st">"BMI"</span>, </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Menopausal Age"</span>,<span class="at">caption =</span> <span class="st">"Created by Yinging Yu"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Example-analysis_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+<p><img src="Example-analysis_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"table1"</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">label</span>(data<span class="sc">$</span>age_meno) <span class="ot">&lt;-</span> <span class="st">"Menopause Age"</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">label</span>(data<span class="sc">$</span>livebirths) <span class="ot">&lt;-</span> <span class="st">"Number of Childbirths"</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">label</span>(data<span class="sc">$</span>age_sur) <span class="ot">&lt;-</span> <span class="st">"Age"</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">label</span>(data<span class="sc">$</span>race) <span class="ot">&lt;-</span> <span class="st">"Race"</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">label</span>(data<span class="sc">$</span>education) <span class="ot">&lt;-</span> <span class="st">"Education"</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">label</span>(data<span class="sc">$</span>drink) <span class="ot">&lt;-</span> <span class="st">"Alcohol use"</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="fu">label</span>(data<span class="sc">$</span>smoke) <span class="ot">&lt;-</span> <span class="st">"Smoking status"</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="fu">label</span>(data<span class="sc">$</span>pills) <span class="ot">&lt;-</span> <span class="st">"Oral contraceptive use"</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="fu">label</span>(data<span class="sc">$</span>bmi) <span class="ot">&lt;-</span> <span class="st">"BMI"</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="fu">units</span>(data<span class="sc">$</span>bmi) <span class="ot">&lt;-</span> <span class="st">"kg/m2"</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>caption  <span class="ot">&lt;-</span> <span class="st">"Table 1. Characteristics of the study population according to number of livebirths"</span></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>footnote <span class="ot">&lt;-</span> <span class="st">"Note: Continuous variables were displayed as mean (SD) and categorical variables were displayed as number (percentage)."</span></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>mytable <span class="ot">&lt;-</span> <span class="fu">table1</span>(<span class="sc">~</span> age_sur <span class="sc">+</span> race <span class="sc">+</span> education <span class="sc">+</span> drink <span class="sc">+</span> smoke <span class="sc">+</span> pills <span class="sc">+</span> bmi <span class="sc">|</span> lbgroup, <span class="at">data=</span>data, <span class="at">footnote=</span>footnote, <span class="at">caption=</span>caption, <span class="at">overall=</span><span class="fu">c</span>(<span class="at">left=</span><span class="st">"Total"</span>))</span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>mytable</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"table1"</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">label</span>(data<span class="sc">$</span>age_meno) <span class="ot">&lt;-</span> <span class="st">"Menopause Age"</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">label</span>(data<span class="sc">$</span>livebirths) <span class="ot">&lt;-</span> <span class="st">"Number of Childbirths"</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">label</span>(data<span class="sc">$</span>age_sur) <span class="ot">&lt;-</span> <span class="st">"Age"</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">label</span>(data<span class="sc">$</span>race) <span class="ot">&lt;-</span> <span class="st">"Race"</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">label</span>(data<span class="sc">$</span>education) <span class="ot">&lt;-</span> <span class="st">"Education"</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="fu">label</span>(data<span class="sc">$</span>drink) <span class="ot">&lt;-</span> <span class="st">"Alcohol use"</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="fu">label</span>(data<span class="sc">$</span>smoke) <span class="ot">&lt;-</span> <span class="st">"Smoking status"</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="fu">label</span>(data<span class="sc">$</span>pills) <span class="ot">&lt;-</span> <span class="st">"Oral contraceptive use"</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="fu">label</span>(data<span class="sc">$</span>bmi) <span class="ot">&lt;-</span> <span class="st">"BMI"</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="fu">units</span>(data<span class="sc">$</span>bmi) <span class="ot">&lt;-</span> <span class="st">"kg/m2"</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>caption  <span class="ot">&lt;-</span> <span class="st">"Table 1. Characteristics of the study population according to number of livebirths"</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>footnote <span class="ot">&lt;-</span> <span class="st">"Note: Continuous variables were displayed as mean (SD) and categorical variables were displayed as number (percentage)."</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>mytable <span class="ot">&lt;-</span> <span class="fu">table1</span>(<span class="sc">~</span> age_sur <span class="sc">+</span> race <span class="sc">+</span> education <span class="sc">+</span> drink <span class="sc">+</span> smoke <span class="sc">+</span> pills <span class="sc">+</span> bmi <span class="sc">|</span> newgroup, <span class="at">data=</span>data, <span class="at">footnote=</span>footnote, <span class="at">caption=</span>caption, <span class="at">overall=</span><span class="fu">c</span>(<span class="at">left=</span><span class="st">"Total"</span>))</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>mytable</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div class="Rtable1"><table class="Rtable1"><caption>Table 1. Characteristics of the study population according to number of livebirths</caption>
@@ -361,11 +486,12 @@ Note
 <tr>
 <th class="rowlabel firstrow lastrow"></th>
 <th class="firstrow lastrow"><span class="stratlabel">Total<br><span class="stratn">(N=1189)</span></span></th>
-<th class="firstrow lastrow"><span class="stratlabel">&lt;=2<br><span class="stratn">(N=583)</span></span></th>
-<th class="firstrow lastrow"><span class="stratlabel">3-5<br><span class="stratn">(N=542)</span></span></th>
 <th class="firstrow lastrow"><span class="stratlabel">&gt;=6<br><span class="stratn">(N=64)</span></span></th>
+<th class="firstrow lastrow"><span class="stratlabel">0<br><span class="stratn">(N=6)</span></span></th>
+<th class="firstrow lastrow"><span class="stratlabel">1-2<br><span class="stratn">(N=577)</span></span></th>
+<th class="firstrow lastrow"><span class="stratlabel">3-5<br><span class="stratn">(N=542)</span></span></th>
 </tr>
-</thead><tfoot><tr><td colspan="5" class="Rtable1-footnote"><p>Note: Continuous variables were displayed as mean (SD) and categorical variables were displayed as number (percentage).</p>
+</thead><tfoot><tr><td colspan="6" class="Rtable1-footnote"><p>Note: Continuous variables were displayed as mean (SD) and categorical variables were displayed as number (percentage).</p>
 </td></tr></tfoot>
 
 <tbody>
@@ -375,23 +501,27 @@ Note
 <td class="firstrow"></td>
 <td class="firstrow"></td>
 <td class="firstrow"></td>
+<td class="firstrow"></td>
 </tr>
 <tr>
 <td class="rowlabel">Mean (SD)</td>
 <td>62.7 (11.3)</td>
+<td>68.7 (10.3)</td>
+<td>60.2 (10.6)</td>
 <td>61.3 (11.1)</td>
 <td>63.5 (11.3)</td>
-<td>68.7 (10.3)</td>
 </tr>
 <tr>
 <td class="rowlabel lastrow">Median [Min, Max]</td>
 <td class="lastrow">63.0 [22.0, 80.0]</td>
+<td class="lastrow">68.5 [37.0, 80.0]</td>
+<td class="lastrow">57.0 [51.0, 80.0]</td>
 <td class="lastrow">61.0 [22.0, 80.0]</td>
 <td class="lastrow">63.0 [25.0, 80.0]</td>
-<td class="lastrow">68.5 [37.0, 80.0]</td>
 </tr>
 <tr>
 <td class="rowlabel firstrow">Race</td>
+<td class="firstrow"></td>
 <td class="firstrow"></td>
 <td class="firstrow"></td>
 <td class="firstrow"></td>
@@ -400,47 +530,54 @@ Note
 <tr>
 <td class="rowlabel">Black</td>
 <td>282 (23.7%)</td>
-<td>143 (24.5%)</td>
-<td>120 (22.1%)</td>
 <td>19 (29.7%)</td>
+<td>5 (83.3%)</td>
+<td>138 (23.9%)</td>
+<td>120 (22.1%)</td>
 </tr>
 <tr>
 <td class="rowlabel">Mexican American</td>
 <td>151 (12.7%)</td>
-<td>48 (8.2%)</td>
-<td>85 (15.7%)</td>
 <td>18 (28.1%)</td>
+<td>0 (0%)</td>
+<td>48 (8.3%)</td>
+<td>85 (15.7%)</td>
 </tr>
 <tr>
 <td class="rowlabel">Other Hispanic</td>
 <td>123 (10.3%)</td>
-<td>62 (10.6%)</td>
-<td>57 (10.5%)</td>
 <td>4 (6.3%)</td>
+<td>0 (0%)</td>
+<td>62 (10.7%)</td>
+<td>57 (10.5%)</td>
 </tr>
 <tr>
 <td class="rowlabel">White</td>
 <td>460 (38.7%)</td>
-<td>232 (39.8%)</td>
-<td>212 (39.1%)</td>
 <td>16 (25.0%)</td>
+<td>0 (0%)</td>
+<td>232 (40.2%)</td>
+<td>212 (39.1%)</td>
 </tr>
 <tr>
 <td class="rowlabel">Asian</td>
 <td>129 (10.8%)</td>
-<td>68 (11.7%)</td>
-<td>56 (10.3%)</td>
 <td>5 (7.8%)</td>
+<td>1 (16.7%)</td>
+<td>67 (11.6%)</td>
+<td>56 (10.3%)</td>
 </tr>
 <tr>
 <td class="rowlabel lastrow">Multi-Racial</td>
 <td class="lastrow">44 (3.7%)</td>
-<td class="lastrow">30 (5.1%)</td>
-<td class="lastrow">12 (2.2%)</td>
 <td class="lastrow">2 (3.1%)</td>
+<td class="lastrow">0 (0%)</td>
+<td class="lastrow">30 (5.2%)</td>
+<td class="lastrow">12 (2.2%)</td>
 </tr>
 <tr>
 <td class="rowlabel firstrow">Education</td>
+<td class="firstrow"></td>
 <td class="firstrow"></td>
 <td class="firstrow"></td>
 <td class="firstrow"></td>
@@ -449,33 +586,38 @@ Note
 <tr>
 <td class="rowlabel">Less Than High School Diploma</td>
 <td>247 (20.8%)</td>
-<td>68 (11.7%)</td>
-<td>147 (27.1%)</td>
 <td>32 (50.0%)</td>
+<td>0 (0%)</td>
+<td>68 (11.8%)</td>
+<td>147 (27.1%)</td>
 </tr>
 <tr>
 <td class="rowlabel">High School Diploma</td>
 <td>305 (25.7%)</td>
-<td>142 (24.4%)</td>
-<td>153 (28.2%)</td>
 <td>10 (15.6%)</td>
+<td>3 (50.0%)</td>
+<td>139 (24.1%)</td>
+<td>153 (28.2%)</td>
 </tr>
 <tr>
 <td class="rowlabel">College</td>
 <td>396 (33.3%)</td>
-<td>219 (37.6%)</td>
-<td>163 (30.1%)</td>
 <td>14 (21.9%)</td>
+<td>2 (33.3%)</td>
+<td>217 (37.6%)</td>
+<td>163 (30.1%)</td>
 </tr>
 <tr>
 <td class="rowlabel lastrow">College Graduate Or Above</td>
 <td class="lastrow">241 (20.3%)</td>
-<td class="lastrow">154 (26.4%)</td>
-<td class="lastrow">79 (14.6%)</td>
 <td class="lastrow">8 (12.5%)</td>
+<td class="lastrow">1 (16.7%)</td>
+<td class="lastrow">153 (26.5%)</td>
+<td class="lastrow">79 (14.6%)</td>
 </tr>
 <tr>
 <td class="rowlabel firstrow">Alcohol use</td>
+<td class="firstrow"></td>
 <td class="firstrow"></td>
 <td class="firstrow"></td>
 <td class="firstrow"></td>
@@ -484,19 +626,22 @@ Note
 <tr>
 <td class="rowlabel">Ever</td>
 <td>1015 (85.4%)</td>
-<td>506 (86.8%)</td>
-<td>456 (84.1%)</td>
 <td>53 (82.8%)</td>
+<td>3 (50.0%)</td>
+<td>503 (87.2%)</td>
+<td>456 (84.1%)</td>
 </tr>
 <tr>
 <td class="rowlabel lastrow">Never</td>
 <td class="lastrow">174 (14.6%)</td>
-<td class="lastrow">77 (13.2%)</td>
-<td class="lastrow">86 (15.9%)</td>
 <td class="lastrow">11 (17.2%)</td>
+<td class="lastrow">3 (50.0%)</td>
+<td class="lastrow">74 (12.8%)</td>
+<td class="lastrow">86 (15.9%)</td>
 </tr>
 <tr>
 <td class="rowlabel firstrow">Smoking status</td>
+<td class="firstrow"></td>
 <td class="firstrow"></td>
 <td class="firstrow"></td>
 <td class="firstrow"></td>
@@ -505,19 +650,22 @@ Note
 <tr>
 <td class="rowlabel">Ever</td>
 <td>427 (35.9%)</td>
-<td>213 (36.5%)</td>
-<td>193 (35.6%)</td>
 <td>21 (32.8%)</td>
+<td>0 (0%)</td>
+<td>213 (36.9%)</td>
+<td>193 (35.6%)</td>
 </tr>
 <tr>
 <td class="rowlabel lastrow">Never</td>
 <td class="lastrow">762 (64.1%)</td>
-<td class="lastrow">370 (63.5%)</td>
-<td class="lastrow">349 (64.4%)</td>
 <td class="lastrow">43 (67.2%)</td>
+<td class="lastrow">6 (100%)</td>
+<td class="lastrow">364 (63.1%)</td>
+<td class="lastrow">349 (64.4%)</td>
 </tr>
 <tr>
 <td class="rowlabel firstrow">Oral contraceptive use</td>
+<td class="firstrow"></td>
 <td class="firstrow"></td>
 <td class="firstrow"></td>
 <td class="firstrow"></td>
@@ -526,19 +674,22 @@ Note
 <tr>
 <td class="rowlabel">Ever</td>
 <td>830 (69.8%)</td>
-<td>423 (72.6%)</td>
-<td>375 (69.2%)</td>
 <td>32 (50.0%)</td>
+<td>5 (83.3%)</td>
+<td>418 (72.4%)</td>
+<td>375 (69.2%)</td>
 </tr>
 <tr>
 <td class="rowlabel lastrow">Never</td>
 <td class="lastrow">359 (30.2%)</td>
-<td class="lastrow">160 (27.4%)</td>
-<td class="lastrow">167 (30.8%)</td>
 <td class="lastrow">32 (50.0%)</td>
+<td class="lastrow">1 (16.7%)</td>
+<td class="lastrow">159 (27.6%)</td>
+<td class="lastrow">167 (30.8%)</td>
 </tr>
 <tr>
 <td class="rowlabel firstrow">BMI (kg/m2)</td>
+<td class="firstrow"></td>
 <td class="firstrow"></td>
 <td class="firstrow"></td>
 <td class="firstrow"></td>
@@ -547,16 +698,18 @@ Note
 <tr>
 <td class="rowlabel">Mean (SD)</td>
 <td>30.6 (7.71)</td>
-<td>30.4 (7.63)</td>
-<td>30.8 (7.96)</td>
 <td>30.6 (6.15)</td>
+<td>31.7 (6.56)</td>
+<td>30.3 (7.64)</td>
+<td>30.8 (7.96)</td>
 </tr>
 <tr>
 <td class="rowlabel lastrow">Median [Min, Max]</td>
 <td class="lastrow">29.3 [15.5, 84.4]</td>
+<td class="lastrow">29.4 [18.4, 45.4]</td>
+<td class="lastrow">29.4 [26.1, 44.0]</td>
 <td class="lastrow">29.0 [15.5, 67.7]</td>
 <td class="lastrow">29.4 [16.2, 84.4]</td>
-<td class="lastrow">29.4 [18.4, 45.4]</td>
 </tr>
 </tbody>
 </table>
@@ -569,10 +722,10 @@ Note
 <p>Univariate and multivariate analyses were performed with simple and multiple linear regression, respectively. In univariate analysis, “umber of childbirth”, “age at survey”, and “smoking status” show statistically significance with our outcome variable. For race, only the subgroups “other Hispanic” and “Asian” are significant relative to the reference group. For education level, “high school diploma” and “college graduate or above” rose to the level of statistical significance.</p>
 <p>This association continued to appear after adjustment in the full model. After comparing between different combinations of covariates, the model with the lowest AIC score were picked as our final adjusted model shown in Table 2 below. In multivariable linear regression analyses, the number of childbirth was associated with the age of menopause, in which each additional childbirth is associated with a 0.34 (95% CI: 0.02, 0.66) increase of the menopausal age, while holding all other covariates constant. Future research will be needed to validify this association and explore the underlining biological mechanism.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>Slin1 <span class="ot">=</span> <span class="fu">lm</span>(age_meno <span class="sc">~</span> livebirths, <span class="at">data =</span> data)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>Mlin3 <span class="ot">=</span> <span class="fu">lm</span>(age_meno <span class="sc">~</span> livebirths <span class="sc">+</span> age_sur <span class="sc">+</span> race <span class="sc">+</span> education <span class="sc">+</span> pills <span class="sc">+</span> smoke, <span class="at">data =</span> data)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Mlin3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>Slin1 <span class="ot">=</span> <span class="fu">lm</span>(age_meno <span class="sc">~</span> livebirths, <span class="at">data =</span> data)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>Mlin3 <span class="ot">=</span> <span class="fu">lm</span>(age_meno <span class="sc">~</span> livebirths <span class="sc">+</span> age_sur <span class="sc">+</span> race <span class="sc">+</span> education <span class="sc">+</span> pills <span class="sc">+</span> smoke, <span class="at">data =</span> data)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Mlin3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -605,36 +758,36 @@ Residual standard error: 7.966 on 1176 degrees of freedom
 Multiple R-squared:  0.1496,    Adjusted R-squared:  0.1409 
 F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(Mlin3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(Mlin3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 8323.974</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtsummary)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>t1 <span class="ot">&lt;-</span> <span class="fu">tbl_regression</span>(Slin1)<span class="sc">%&gt;%</span><span class="fu">add_global_p</span>()</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>t2 <span class="ot">&lt;-</span> <span class="fu">tbl_regression</span>(Mlin3)<span class="sc">%&gt;%</span><span class="fu">add_global_p</span>()</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>tbl_merge <span class="ot">&lt;-</span> <span class="fu">tbl_merge</span>(<span class="at">tbls =</span> <span class="fu">list</span>(t1,t2),</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">tab_spanner =</span> <span class="fu">c</span>(<span class="st">"**Unadjusted**"</span>,<span class="st">"**Adjusted**"</span>))</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>tbl_merge </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtsummary)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>t1 <span class="ot">&lt;-</span> <span class="fu">tbl_regression</span>(Slin1)<span class="sc">%&gt;%</span><span class="fu">add_global_p</span>()</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>t2 <span class="ot">&lt;-</span> <span class="fu">tbl_regression</span>(Mlin3)<span class="sc">%&gt;%</span><span class="fu">add_global_p</span>()</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>tbl_merge <span class="ot">&lt;-</span> <span class="fu">tbl_merge</span>(<span class="at">tbls =</span> <span class="fu">list</span>(t1,t2),</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">tab_spanner =</span> <span class="fu">c</span>(<span class="st">"**Unadjusted**"</span>,<span class="st">"**Adjusted**"</span>))</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>tbl_merge </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<div id="hcuogcdosc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#hcuogcdosc table {
+<div id="ukhmmsdsym" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ukhmmsdsym table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#hcuogcdosc thead, #hcuogcdosc tbody, #hcuogcdosc tfoot, #hcuogcdosc tr, #hcuogcdosc td, #hcuogcdosc th {
+#ukhmmsdsym thead, #ukhmmsdsym tbody, #ukhmmsdsym tfoot, #ukhmmsdsym tr, #ukhmmsdsym td, #ukhmmsdsym th {
   border-style: none;
 }
 
-#hcuogcdosc p {
+#ukhmmsdsym p {
   margin: 0;
   padding: 0;
 }
 
-#hcuogcdosc .gt_table {
+#ukhmmsdsym .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -660,12 +813,12 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#hcuogcdosc .gt_caption {
+#ukhmmsdsym .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#hcuogcdosc .gt_title {
+#ukhmmsdsym .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -677,7 +830,7 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   border-bottom-width: 0;
 }
 
-#hcuogcdosc .gt_subtitle {
+#ukhmmsdsym .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -689,7 +842,7 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   border-top-width: 0;
 }
 
-#hcuogcdosc .gt_heading {
+#ukhmmsdsym .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -701,13 +854,13 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#hcuogcdosc .gt_bottom_border {
+#ukhmmsdsym .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#hcuogcdosc .gt_col_headings {
+#ukhmmsdsym .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -722,7 +875,7 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#hcuogcdosc .gt_col_heading {
+#ukhmmsdsym .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -742,7 +895,7 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   overflow-x: hidden;
 }
 
-#hcuogcdosc .gt_column_spanner_outer {
+#ukhmmsdsym .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -754,15 +907,15 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   padding-right: 4px;
 }
 
-#hcuogcdosc .gt_column_spanner_outer:first-child {
+#ukhmmsdsym .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#hcuogcdosc .gt_column_spanner_outer:last-child {
+#ukhmmsdsym .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#hcuogcdosc .gt_column_spanner {
+#ukhmmsdsym .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -774,11 +927,11 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   width: 100%;
 }
 
-#hcuogcdosc .gt_spanner_row {
+#ukhmmsdsym .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#hcuogcdosc .gt_group_heading {
+#ukhmmsdsym .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -804,7 +957,7 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   text-align: left;
 }
 
-#hcuogcdosc .gt_empty_group_heading {
+#ukhmmsdsym .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -819,15 +972,15 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   vertical-align: middle;
 }
 
-#hcuogcdosc .gt_from_md > :first-child {
+#ukhmmsdsym .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#hcuogcdosc .gt_from_md > :last-child {
+#ukhmmsdsym .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#hcuogcdosc .gt_row {
+#ukhmmsdsym .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -846,7 +999,7 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   overflow-x: hidden;
 }
 
-#hcuogcdosc .gt_stub {
+#ukhmmsdsym .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -859,7 +1012,7 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   padding-right: 5px;
 }
 
-#hcuogcdosc .gt_stub_row_group {
+#ukhmmsdsym .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -873,15 +1026,15 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   vertical-align: top;
 }
 
-#hcuogcdosc .gt_row_group_first td {
+#ukhmmsdsym .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#hcuogcdosc .gt_row_group_first th {
+#ukhmmsdsym .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#hcuogcdosc .gt_summary_row {
+#ukhmmsdsym .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -891,16 +1044,16 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   padding-right: 5px;
 }
 
-#hcuogcdosc .gt_first_summary_row {
+#ukhmmsdsym .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#hcuogcdosc .gt_first_summary_row.thick {
+#ukhmmsdsym .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#hcuogcdosc .gt_last_summary_row {
+#ukhmmsdsym .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -910,7 +1063,7 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#hcuogcdosc .gt_grand_summary_row {
+#ukhmmsdsym .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -920,7 +1073,7 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   padding-right: 5px;
 }
 
-#hcuogcdosc .gt_first_grand_summary_row {
+#ukhmmsdsym .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -930,7 +1083,7 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#hcuogcdosc .gt_last_grand_summary_row_top {
+#ukhmmsdsym .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -940,11 +1093,11 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#hcuogcdosc .gt_striped {
+#ukhmmsdsym .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#hcuogcdosc .gt_table_body {
+#ukhmmsdsym .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -953,7 +1106,7 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#hcuogcdosc .gt_footnotes {
+#ukhmmsdsym .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -967,7 +1120,7 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#hcuogcdosc .gt_footnote {
+#ukhmmsdsym .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -976,7 +1129,7 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   padding-right: 5px;
 }
 
-#hcuogcdosc .gt_sourcenotes {
+#ukhmmsdsym .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -990,7 +1143,7 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#hcuogcdosc .gt_sourcenote {
+#ukhmmsdsym .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -998,63 +1151,63 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   padding-right: 5px;
 }
 
-#hcuogcdosc .gt_left {
+#ukhmmsdsym .gt_left {
   text-align: left;
 }
 
-#hcuogcdosc .gt_center {
+#ukhmmsdsym .gt_center {
   text-align: center;
 }
 
-#hcuogcdosc .gt_right {
+#ukhmmsdsym .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#hcuogcdosc .gt_font_normal {
+#ukhmmsdsym .gt_font_normal {
   font-weight: normal;
 }
 
-#hcuogcdosc .gt_font_bold {
+#ukhmmsdsym .gt_font_bold {
   font-weight: bold;
 }
 
-#hcuogcdosc .gt_font_italic {
+#ukhmmsdsym .gt_font_italic {
   font-style: italic;
 }
 
-#hcuogcdosc .gt_super {
+#ukhmmsdsym .gt_super {
   font-size: 65%;
 }
 
-#hcuogcdosc .gt_footnote_marks {
+#ukhmmsdsym .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#hcuogcdosc .gt_asterisk {
+#ukhmmsdsym .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#hcuogcdosc .gt_indent_1 {
+#ukhmmsdsym .gt_indent_1 {
   text-indent: 5px;
 }
 
-#hcuogcdosc .gt_indent_2 {
+#ukhmmsdsym .gt_indent_2 {
   text-indent: 10px;
 }
 
-#hcuogcdosc .gt_indent_3 {
+#ukhmmsdsym .gt_indent_3 {
   text-indent: 15px;
 }
 
-#hcuogcdosc .gt_indent_4 {
+#ukhmmsdsym .gt_indent_4 {
   text-indent: 20px;
 }
 
-#hcuogcdosc .gt_indent_5 {
+#ukhmmsdsym .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1231,12 +1384,58 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 </div>
+</section>
+</section>
+<section id="discussion" class="level1">
+<h1>Discussion</h1>
+<p>Univariate and multivariate analyses were performed with simple and multiple linear regression, respectively. In univariate analysis, “umber of childbirth”, “age at survey”, and “smoking status” show statistically significance with our outcome variable. For race, only the subgroups “other Hispanic” and “Asian” are significant relative to the reference group. For education level, “high school diploma” and “college graduate or above” rose to the level of statistical significance.</p>
+<p>This association continued to appear after adjustment in the full model. In multivariable linear regression analyses, the number of childbirth was associated with the age of menopause, in which each additional childbirth is associated with a 0.34 (95% CI: 0.02, 0.66) increase of the menopausal age, while holding all other covariates constant. Future research will be needed to validify this association and explore the underlining biological mechanism.</p>
+<hr>
+</section>
+<section id="function-summary" class="level1">
+<h1>Function summary</h1>
+<table class="table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 82%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Package name</th>
+<th>Functions used</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>tidyr</code></td>
+<td><code>drop_na</code></td>
+</tr>
+<tr class="even">
+<td><code>dplyr</code></td>
+<td><code>arrange</code> <code>mutate</code> <code>group_by</code> <code>summarise</code></td>
+</tr>
+<tr class="odd">
+<td><code>ggplot2</code></td>
+<td><code>geom_bar</code> <code>geom_vline</code> <code>geom_point</code> <code>facet_wrap</code> <code>geom_smooth</code></td>
+</tr>
+</tbody>
+</table>
+
 
 
 </section>
-</section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-NHANES" class="csl-entry" role="listitem">
+CDC. 2019. <span>“NHANES 2017-2018.”</span> 2019. <a href="https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2017">https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2017</a>.
+</div>
+<div id="ref-greendale1999" class="csl-entry" role="listitem">
+Greendale, Gail A, Nancy P Lee, and Edga R Arriola. 1999. <span>“The Menopause.”</span> <em>The Lancet</em> 353 (9152): 571–80.
+</div>
+<div id="ref-WHO" class="csl-entry" role="listitem">
+WHO. 2021. <span>“Menopause.”</span> 2021. <a href="https://www.who.int/news-room/fact-sheets/detail/menopause">https://www.who.int/news-room/fact-sheets/detail/menopause</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
