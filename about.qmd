@@ -1,5 +1,7 @@
 ---
 title: "About"
+about: 
+  template: trestles
 ---
 
 My journey has been fueled by a deep-rooted passion for making a meaningful impact in the field of oncology. My undergraduate major in biology laid the foundation for my initial career aspirations. However, over time, I found myself increasingly drawn to the world of data science and bioinformatics. I realized the potential for data-driven insights to transform our understanding of complex biological processes.
