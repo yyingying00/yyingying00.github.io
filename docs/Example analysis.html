@@ -425,7 +425,7 @@ Data Dictionary
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>data) <span class="sc">+</span></span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>age_sur)) <span class="sc">+</span></span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(data<span class="sc">$</span>age_sur), <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Figure 1: Distribution of Participant Age at survey "</span>, </span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Figure 1:"</span>, <span class="at">subtile =</span> <span class="st">"Distribution of Participant Age at survey"</span>,</span>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Age"</span>, <span class="at">y =</span> <span class="st">"Frequency"</span>, <span class="at">caption =</span> <span class="st">"Created by Yinging Yu"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="Example-analysis_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
@@ -448,8 +448,10 @@ Note
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> data) <span class="sc">+</span> </span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> age_meno, <span class="at">y =</span> livebirths)) <span class="sc">+</span> </span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> race, <span class="at">nrow =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Figure 2: Distribution of Menopausal Age and Livebirths by Race/Ethnicity"</span>,</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Menopausal Age"</span>, <span class="at">y =</span> <span class="st">"Number of Livebirths"</span>,<span class="at">caption =</span> <span class="st">"Created by Yinging Yu"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Figure 2:"</span>, </span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Distribution of Menopausal Age and Livebirths by Race/Ethnicity"</span>, </span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Menopausal Age"</span>, <span class="at">y =</span> <span class="st">"Number of Livebirths"</span>, </span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Created by Yinging Yu"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="Example-analysis_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -457,8 +459,8 @@ Note
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> data) <span class="sc">+</span> </span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bmi, <span class="at">y =</span> age_meno)) <span class="sc">+</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Figure 3: Distribution of BMI and Menopausal Age"</span>, <span class="at">x =</span> <span class="st">"BMI"</span>, </span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Menopausal Age"</span>,<span class="at">caption =</span> <span class="st">"Created by Yinging Yu"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Figure 3:"</span>, <span class="at">subtitle =</span> <span class="st">"Distribution of BMI and Menopausal Age"</span>, </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"BMI"</span>, <span class="at">y =</span> <span class="st">"Menopausal Age"</span>,<span class="at">caption =</span> <span class="st">"Created by Yinging Yu"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="Example-analysis_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -773,23 +775,23 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
 <span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>tbl_merge </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<div id="biovsfgjcy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#biovsfgjcy table {
+<div id="fvlbvhxuih" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#fvlbvhxuih table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#biovsfgjcy thead, #biovsfgjcy tbody, #biovsfgjcy tfoot, #biovsfgjcy tr, #biovsfgjcy td, #biovsfgjcy th {
+#fvlbvhxuih thead, #fvlbvhxuih tbody, #fvlbvhxuih tfoot, #fvlbvhxuih tr, #fvlbvhxuih td, #fvlbvhxuih th {
   border-style: none;
 }
 
-#biovsfgjcy p {
+#fvlbvhxuih p {
   margin: 0;
   padding: 0;
 }
 
-#biovsfgjcy .gt_table {
+#fvlbvhxuih .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -815,12 +817,12 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#biovsfgjcy .gt_caption {
+#fvlbvhxuih .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#biovsfgjcy .gt_title {
+#fvlbvhxuih .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -832,7 +834,7 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   border-bottom-width: 0;
 }
 
-#biovsfgjcy .gt_subtitle {
+#fvlbvhxuih .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -844,7 +846,7 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   border-top-width: 0;
 }
 
-#biovsfgjcy .gt_heading {
+#fvlbvhxuih .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -856,13 +858,13 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#biovsfgjcy .gt_bottom_border {
+#fvlbvhxuih .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#biovsfgjcy .gt_col_headings {
+#fvlbvhxuih .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -877,7 +879,7 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#biovsfgjcy .gt_col_heading {
+#fvlbvhxuih .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -897,7 +899,7 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   overflow-x: hidden;
 }
 
-#biovsfgjcy .gt_column_spanner_outer {
+#fvlbvhxuih .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -909,15 +911,15 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   padding-right: 4px;
 }
 
-#biovsfgjcy .gt_column_spanner_outer:first-child {
+#fvlbvhxuih .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#biovsfgjcy .gt_column_spanner_outer:last-child {
+#fvlbvhxuih .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#biovsfgjcy .gt_column_spanner {
+#fvlbvhxuih .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -929,11 +931,11 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   width: 100%;
 }
 
-#biovsfgjcy .gt_spanner_row {
+#fvlbvhxuih .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#biovsfgjcy .gt_group_heading {
+#fvlbvhxuih .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -959,7 +961,7 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   text-align: left;
 }
 
-#biovsfgjcy .gt_empty_group_heading {
+#fvlbvhxuih .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -974,15 +976,15 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   vertical-align: middle;
 }
 
-#biovsfgjcy .gt_from_md > :first-child {
+#fvlbvhxuih .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#biovsfgjcy .gt_from_md > :last-child {
+#fvlbvhxuih .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#biovsfgjcy .gt_row {
+#fvlbvhxuih .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1001,7 +1003,7 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   overflow-x: hidden;
 }
 
-#biovsfgjcy .gt_stub {
+#fvlbvhxuih .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1014,7 +1016,7 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   padding-right: 5px;
 }
 
-#biovsfgjcy .gt_stub_row_group {
+#fvlbvhxuih .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1028,15 +1030,15 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   vertical-align: top;
 }
 
-#biovsfgjcy .gt_row_group_first td {
+#fvlbvhxuih .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#biovsfgjcy .gt_row_group_first th {
+#fvlbvhxuih .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#biovsfgjcy .gt_summary_row {
+#fvlbvhxuih .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1046,16 +1048,16 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   padding-right: 5px;
 }
 
-#biovsfgjcy .gt_first_summary_row {
+#fvlbvhxuih .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#biovsfgjcy .gt_first_summary_row.thick {
+#fvlbvhxuih .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#biovsfgjcy .gt_last_summary_row {
+#fvlbvhxuih .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1065,7 +1067,7 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#biovsfgjcy .gt_grand_summary_row {
+#fvlbvhxuih .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1075,7 +1077,7 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   padding-right: 5px;
 }
 
-#biovsfgjcy .gt_first_grand_summary_row {
+#fvlbvhxuih .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1085,7 +1087,7 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#biovsfgjcy .gt_last_grand_summary_row_top {
+#fvlbvhxuih .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1095,11 +1097,11 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#biovsfgjcy .gt_striped {
+#fvlbvhxuih .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#biovsfgjcy .gt_table_body {
+#fvlbvhxuih .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1108,7 +1110,7 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#biovsfgjcy .gt_footnotes {
+#fvlbvhxuih .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1122,7 +1124,7 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#biovsfgjcy .gt_footnote {
+#fvlbvhxuih .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1131,7 +1133,7 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   padding-right: 5px;
 }
 
-#biovsfgjcy .gt_sourcenotes {
+#fvlbvhxuih .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1145,7 +1147,7 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#biovsfgjcy .gt_sourcenote {
+#fvlbvhxuih .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1153,63 +1155,63 @@ F-statistic: 17.24 on 12 and 1176 DF,  p-value: &lt; 2.2e-16</code></pre>
   padding-right: 5px;
 }
 
-#biovsfgjcy .gt_left {
+#fvlbvhxuih .gt_left {
   text-align: left;
 }
 
-#biovsfgjcy .gt_center {
+#fvlbvhxuih .gt_center {
   text-align: center;
 }
 
-#biovsfgjcy .gt_right {
+#fvlbvhxuih .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#biovsfgjcy .gt_font_normal {
+#fvlbvhxuih .gt_font_normal {
   font-weight: normal;
 }
 
-#biovsfgjcy .gt_font_bold {
+#fvlbvhxuih .gt_font_bold {
   font-weight: bold;
 }
 
-#biovsfgjcy .gt_font_italic {
+#fvlbvhxuih .gt_font_italic {
   font-style: italic;
 }
 
-#biovsfgjcy .gt_super {
+#fvlbvhxuih .gt_super {
   font-size: 65%;
 }
 
-#biovsfgjcy .gt_footnote_marks {
+#fvlbvhxuih .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#biovsfgjcy .gt_asterisk {
+#fvlbvhxuih .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#biovsfgjcy .gt_indent_1 {
+#fvlbvhxuih .gt_indent_1 {
   text-indent: 5px;
 }
 
-#biovsfgjcy .gt_indent_2 {
+#fvlbvhxuih .gt_indent_2 {
   text-indent: 10px;
 }
 
-#biovsfgjcy .gt_indent_3 {
+#fvlbvhxuih .gt_indent_3 {
   text-indent: 15px;
 }
 
-#biovsfgjcy .gt_indent_4 {
+#fvlbvhxuih .gt_indent_4 {
   text-indent: 20px;
 }
 
-#biovsfgjcy .gt_indent_5 {
+#fvlbvhxuih .gt_indent_5 {
   text-indent: 25px;
 }
 </style>

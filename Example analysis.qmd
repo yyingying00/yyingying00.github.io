@@ -144,7 +144,7 @@ library(ggplot2)
 ggplot(data=data) +
   geom_bar(mapping=aes(x=age_sur)) +
   geom_vline(xintercept = mean(data$age_sur), color = "red", linetype = "dashed", size = 1) +
-  labs(title = "Figure 1: Distribution of Participant Age at survey ", 
+  labs(title = "Figure 1:", subtile = "Distribution of Participant Age at survey",
        x = "Age", y = "Frequency", caption = "Created by Yinging Yu")
 ```
 
@@ -157,16 +157,18 @@ Note that the frequency of 80 years old is extremely high because it includes 80
 ggplot(data = data) + 
   geom_point(mapping = aes(x = age_meno, y = livebirths)) + 
   facet_wrap(~ race, nrow = 2) +
-  labs(title = "Figure 2: Distribution of Menopausal Age and Livebirths by Race/Ethnicity",
-       x = "Menopausal Age", y = "Number of Livebirths",caption = "Created by Yinging Yu") 
+  labs(title = "Figure 2:", 
+       subtitle = "Distribution of Menopausal Age and Livebirths by Race/Ethnicity", 
+       x = "Menopausal Age", y = "Number of Livebirths", 
+       caption = "Created by Yinging Yu") 
 ```
 
 ```{r}
 #| warning: false
 ggplot(data = data) + 
   geom_smooth(mapping = aes(x = bmi, y = age_meno)) +
-  labs(title = "Figure 3: Distribution of BMI and Menopausal Age", x = "BMI", 
-       y = "Menopausal Age",caption = "Created by Yinging Yu") 
+  labs(title = "Figure 3:", subtitle = "Distribution of BMI and Menopausal Age", 
+       x = "BMI", y = "Menopausal Age",caption = "Created by Yinging Yu") 
 ```
 
 ```{r}
