@@ -2,12 +2,12 @@
 title: "Example analysis"
 author: "Yingying Yu"
 date: "2023-11-1"
-bibliography: references.bib
+bibliography: reference1.bib
 ---
 
 # Introduction
 
-![](menopause.png){style="float:right;" width="170"} Menopause is a natural biological event triggered by the decline in ovarian follicular function and a reduction in circulating blood estrogen levels [@greendale1999]. According to the World Health Organization [@WHO], the majority of women experience menopause in their forties and fifties, typically defined as twelve consecutive months without menstruation, with no other underlying cause. Notably, during pregnancy, women do not have their regular menstrual period for approximately nine months due to the profound impact on ovarian activity.
+![](menopause.png){style="float:right;" width="170"} Menopause is a natural biological event triggered by the decline in ovarian follicular function and a reduction in circulating blood estrogen levels [@greendale1999menopause]. According to the World Health Organization [@WHO], the majority of women experience menopause in their forties and fifties, typically defined as twelve consecutive months without menstruation, with no other underlying cause. Notably, during pregnancy, women do not have their regular menstrual period for approximately nine months due to the profound impact on ovarian activity.
 
 ------------------------------------------------------------------------
 
@@ -16,6 +16,8 @@ bibliography: references.bib
 The objective of this study is to investigate whether the age at which natural menopause occurs is influenced by the number of childbirths among American women. This research utilizes data from the 2017-18 National Health and Nutrition Examination Survey (NHANES). Our hypothesis posits that an increased age at menopause is associated with a higher number of childbirths.
 
 ::: column-margin
+Note:
+
 This analysis is conducted for researchers, doctors, or anyone who is interested in the risk factors of menopause.
 :::
 
@@ -93,6 +95,7 @@ data <- data[data$education != 9, ] # exclude those dont know their education le
 data <- arrange(data)
 head(data,5)
 ```
+
 ```{r}
 # Quick look on menopausal age and number of delivery
 data %>% 
@@ -115,8 +118,6 @@ data %>%
   group_by(newgroup) %>% 
   summarise(mean = mean(age_meno))
 ```
-
-
 
 ```{r}
 # Make categorical variables
@@ -218,14 +219,14 @@ Univariate and multivariate analyses were performed with simple and multiple lin
 
 This association continued to appear after adjustment in the full model. In multivariable linear regression analyses, the number of childbirth was associated with the age of menopause, in which each additional childbirth is associated with a 0.34 (95% CI: 0.02, 0.66) increase of the menopausal age, while holding all other covariates constant. Future research will be needed to validify this association and explore the underlining biological mechanism.
 
+------------------------------------------------------------------------
 
----
 # Function summary
 
-| Package name | Functions used                                                 |
-|--------------|----------------------------------------------------------------|
-| `tidyr`      | `drop_na`                                                      |
-| `dplyr`      | `arrange` `mutate` `group_by` `summarise`                      |
-| `ggplot2`    | `geom_bar` `geom_vline` `geom_point` `facet_wrap` `geom_smooth`|
+| Package name | Functions used                                                  |
+|------------------|------------------------------------------------------|
+| `tidyr`      | `drop_na`                                                       |
+| `dplyr`      | `arrange` `mutate` `group_by` `summarise`                       |
+| `ggplot2`    | `geom_bar` `geom_vline` `geom_point` `facet_wrap` `geom_smooth` |
 
-
+# References
