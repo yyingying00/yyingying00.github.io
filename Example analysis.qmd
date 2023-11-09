@@ -3,6 +3,10 @@ title: "Example analysis"
 author: "Yingying Yu"
 date: "2023-11-1"
 bibliography: reference1.bib
+format:
+  html:
+    code-fold: true
+    code-summary: "Show the code"
 ---
 
 # Introduction
