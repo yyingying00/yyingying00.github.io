@@ -1,0 +1,11 @@
+---
+title: "BIOL103 - Bioinformatics in Medicine and Biology Final Project"
+description: "This was my first time analysing sequencing data in R. The project analyzed 85 samples of high throughput RNA-seq data of six immune cells sorted from 13 COVID-19 patients with or without hematological cancer."
+author:
+  - name: Yingying
+    url: https://github.com/yyingying00
+date: 12-16-2021
+categories: [RNA-seq, R, cancer] # self-defined categories
+image: preview-image.png
+draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
+---

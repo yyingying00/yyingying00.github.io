@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "Yingying Yu",
     "section": "",
-    "text": "Welcome!\n\nHey there! I am Yingying Yu, and I’m a badminton enthusiast! Whether it’s smashing shuttlecocks on the court or watching the pros, badminton is my passion. Let me know if you want to join our JHU varsity team and win the mission!\nI am a dog person but also fond of kitties! Shoot me your favorite pic of your baby and I will exchange with mine! FYI, I have a 7 years old brown poodle named Hugo :)\n\n\n\nEducation\nMS in Cancer Epidemiology (2024) | Johns Hopkins University\nBA in Biology (2022) | New York University"
+    "text": "Yingying possesses an ingrained passion for creating a substantial influence in the realm of oncology. With a foundation in cell and molecular biology, she discovered a growing attraction to the domain of data science and bioinformatics. This shift occurred as she recognized the capacity of data-driven insights to revolutionize comprehension of intricate biological processes."
   },
   {
     "objectID": "Example analysis.html",
@@ -40,5 +40,40 @@
     "title": "Example analysis",
     "section": "Statistical Analysis",
     "text": "Statistical Analysis\nData of the outcome variable and covariates will be extracted from five sub-data files and combined into a single analytic dataset prior to analysis.\n\n# Load data\nlibrary(\"foreign\")\nBodyMeasure &lt;- read.xport(\"data/BMX_J.XPT\")\nDemographic &lt;- read.xport(\"data/DEMO_J.XPT\")\nAlcohol &lt;- read.xport(\"data/ALQ_J.XPT\")\nSmoking &lt;- read.xport(\"data/SMQ_J.XPT\")\nReproductive &lt;- read.xport(\"data/RHQ_J.XPT\")\nBMI &lt;- BodyMeasure[,c('SEQN','BMXBMI')] \nDemo &lt;- Demographic[, c('SEQN','RIDAGEYR','RIDRETH3','DMDEDUC2')]\nAlcUse &lt;- Alcohol[,c('SEQN','ALQ111')]\nSmoUse &lt;- Smoking[,c('SEQN','SMQ020')]\nFeHealth &lt;- Reproductive[,c('SEQN','RHQ060','RHQ171','RHQ420')]\n\n# Merge data\ndata &lt;- merge(BMI, Demo, by = \"SEQN\", all.x = T, all.y = F)\ndata &lt;- merge(AlcUse, data, by = \"SEQN\", all.x = T, all.y = F)\ndata &lt;- merge(SmoUse, data, by = \"SEQN\", all.x = F, all.y = T)\ndata &lt;- merge(FeHealth, data, by = \"SEQN\", all.x = T, all.y = F)\n\n# Change column names\ncolnames(data) &lt;- c('ID','age_meno','livebirths','pills','smoke','drink','bmi',\n                    'age_sur','race','education')\nhead(data,5)\n\n     ID age_meno livebirths pills smoke drink  bmi age_sur race education\n1 93705       50          2     1     1     1 31.7      66    4         2\n2 93708       48          3     1     2     2 23.7      66    6         1\n3 93709       NA         NA    NA     1    NA 38.9      75    4         4\n4 93714       52          1     1     1     1 39.9      54    4         4\n5 93719       NA         NA     2    NA    NA   NA      NA   NA        NA\n\n\n\n# drop NA and weird values\nlibrary(\"tidyr\")\ndata &lt;- drop_na(data)\ndata &lt;- data[data$age_meno != 999, ] # exclude those dont know when is their last period\ndata &lt;- data[data$pills != 9, ] # exclude those dont know whether they ever taken birth control pills\ndata &lt;- data[data$education != 9, ] # exclude those dont know their education level\nhead(data,5)\n\n     ID age_meno livebirths pills smoke drink  bmi age_sur race education\n1 93705       50          2     1     1     1 31.7      66    4         2\n2 93708       48          3     1     2     2 23.7      66    6         1\n3 93714       52          1     1     1     1 39.9      54    4         4\n4 93721       50          4     1     2     1 35.9      60    1         1\n5 93722       43          2     1     2     1 23.8      60    3         4\n\n\n\n# Make categorical variables\ndata$race &lt;- factor(data$race, labels = c(\"Mexican American\", \"Other Hispanic\",\n                                          \"White\",\"Black\",\"Asian\",\"Multi-Racial\")) %&gt;% relevel(data$race, ref = \"Black\")\ndata$drink &lt;- factor(data$drink, labels = c(\"Ever\", \"Never\"))\ndata$smoke &lt;- factor(data$smoke, labels = c(\"Ever\", \"Never\"))\ndata$pills &lt;- factor(data$pills, labels = c(\"Ever\", \"Never\"))\ndata$education[data$education == 1] &lt;- 2\ndata$education &lt;- factor(data$education, labels = c(\"Less Than High School Diploma\",\"High School Diploma\",\"College\",\"College Graduate Or Above\"))"
+  },
+  {
+    "objectID": "index.html#second-year-mhs-student-in-epidemiology-at-johns-hopkins-univeristy",
+    "href": "index.html#second-year-mhs-student-in-epidemiology-at-johns-hopkins-univeristy",
+    "title": "Yingying Yu",
+    "section": "",
+    "text": "Yingying possesses an ingrained passion for creating a substantial influence in the realm of oncology. With a foundation in cell and molecular biology, she discovered a growing attraction to the domain of data science and bioinformatics. This shift occurred as she recognized the capacity of data-driven insights to revolutionize comprehension of intricate biological processes."
+  },
+  {
+    "objectID": "index.html#her-previouscurrent-research",
+    "href": "index.html#her-previouscurrent-research",
+    "title": "Yingying Yu",
+    "section": "Her previous/current research",
+    "text": "Her previous/current research\n\nChromosome segregation in human cells and its regulation by Spindle Assembly Checkpoint (SAC)\nIdentify potential marker metabolites using mass spectroscopy data\nIdentify novel isoforms of interferon-stimulated genes using RNA-seq data\nAssociation of parity and breastfeeding with breast cancer prognosis"
+  },
+  {
+    "objectID": "index.html#educational-training",
+    "href": "index.html#educational-training",
+    "title": "Yingying Yu",
+    "section": "Educational training",
+    "text": "Educational training\nYingying received her B.A. in Biology from New York University (2022) and her MHS from the Department of Epidemiology at Johns Hopkins University (2024) under the direction of Dr. Kala Visvanathan"
+  },
+  {
+    "objectID": "index.html#working-experience",
+    "href": "index.html#working-experience",
+    "title": "Yingying Yu",
+    "section": "Working experience",
+    "text": "Working experience\nBioinformatics intern | Shanghai Luming Biological Technology\nBusiness development intern | BGI Groups\nSummer research fellow | NIH NCI"
+  },
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Projects",
+    "section": "",
+    "text": "BIOL103 - Bioinformatics in Medicine and Biology Final Project\n\n\n\n\n\n\n\nRNA-seq\n\n\nR\n\n\ncancer\n\n\n\n\nThis was my first time analysing sequencing data in R. The project analyzed 85 samples of high throughput RNA-seq data of six immune cells sorted from 13 COVID-19 patients with or without hematological cancer.\n\n\n\n\n\n\nDec 16, 2021\n\n\nYingying\n\n\n\n\n\n\nNo matching items"
   }
 ]
