@@ -16,25 +16,20 @@ about:
     - icon: github
       text: GitHub
       href: https://github.com/yyingying00
+    - text: CV
+      href: cv.pdf
 ---
+### About  
+Welcome to my site! My name is Yingying. I am a second-year [MHS in Epidemiology](https://publichealth.jhu.edu/academics/mhs-dept-of-epidemiology) student at the Johns Hopkins [Bloomberg School of Public Health](https://publichealth.jhu.edu). My interests revolve around the convergence of cancer biology, data science, epidemiology, and omics data. Proficient in sequencing data analysis, I have experience in developing R packages, implementing version control on GitHub, and proficiently managing data using SQL.
 
-## Second-Year MHS Student in Epidemiology at Johns Hopkins Univeristy
+My enthusiasm lies in leveraging data and analytics to address health-related challenges. I am dedicated to data analysis and contributing to open-source software that elevates the advancements in oncology research.
 
-Yingying possesses an ingrained passion for creating a substantial influence in the realm of oncology. With a foundation in cell and molecular biology, she discovered a growing attraction to the domain of data science and bioinformatics. This shift occurred as she recognized the capacity of data-driven insights to revolutionize comprehension of intricate biological processes.
-
-## Her previous/current research
-
--   Chromosome segregation in human cells and its regulation by Spindle Assembly Checkpoint (SAC)
+### Previous/current research  
+-   Chromosome segregation in human cells and its regulation by SAC
 -   Identify potential marker metabolites using mass spectroscopy data
 -   Identify novel isoforms of interferon-stimulated genes using RNA-seq data
 -   Association of parity and breastfeeding with breast cancer prognosis
 
-## Educational training
-
-Yingying received her B.A. in Biology from New York University (2022) and her MHS from the Department of Epidemiology at Johns Hopkins University (2024) under the direction of Dr. Kala Visvanathan
-
-## Working experience
-
-**Bioinformatics intern** \| Shanghai Luming Biological Technology  
-**Business development intern \|** BGI Groups  
-**Summer research fellow** \| NIH NCI  
+### Educational training  
+**MS in Epidemiology (2024)** | Johns Hopkins University  
+**BA in Biology (2022)** | New York University

@@ -9,12 +9,8 @@ website:
     right:
       - href: index.qmd
         text: Home
-      - href: about.qmd
       - href: projects.qmd
         text: Projects
-      - Example analysis.qmd
-      - href: cv.pdf
-        text: CV
       - icon: github 
         href: https://github.com/yyingying00
   #page-footer:
