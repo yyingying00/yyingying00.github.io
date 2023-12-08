@@ -1,0 +1,33 @@
+/*-- scss:defaults --*/
+
+// colors
+
+$dark-blue: #002349;
+$darker-blue: #0A1828;
+$blue: #96C2DB;
+$turquoise: #178582;
+$dark-green: #858E79;
+$light-green: #D1D9CE;
+$gold: #957C3D;
+$white:#F8F8F9;
+$cream: #FDFBF7;
+$beige: #DDD0C8;
+$gray: #64605f;
+$dark-gray:#323232;
+$light-gray:#E5EDF1;
+
+// Base document colors
+$navbar-bg: $dark-green; // navbar
+$navbar-fg: $cream; // navbar foreground elements
+$navbar-hl: $dark-gray; // highlight color when hovering over navbar links
+$body-bg: $cream; // page background 
+$body-color: $dark-gray; // page text 
+$footer-bg: $gray; // footer 
+$link-color: $gold; // hyperlinks 
+
+// Inline code
+$code-bg: $light-gray; // inline code background color
+$code-color: $turquoise; // inline code text color
+
+// Code blocks
+$code-block-bg: $beige; // code block background color

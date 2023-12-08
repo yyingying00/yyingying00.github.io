@@ -4,27 +4,32 @@ image: profile_photo.jpeg
 toc: false
 about: 
   template: trestles
-  image-shape: round
+  image-shape: rectangle
   image-width: 20em
   links: 
-    - text: LinkedIn
+    - icon: linkedin
+      text: LinkedIn
       href: www.linkedin.com/in/yingying-yu-690322242
-    - text: Email
+    - icon: envelope
+      text: Email
       href: mailto:yyu109@jhmi.edu
+    - icon: github
+      text: GitHub
+      href: https://github.com/yyingying00
+    - text: CV
+      href: cv.pdf
 ---
+### About  
+Welcome to my site! My name is Yingying. I am a second-year [MHS in Epidemiology](https://publichealth.jhu.edu/academics/mhs-dept-of-epidemiology) student at the Johns Hopkins [Bloomberg School of Public Health](https://publichealth.jhu.edu). My interests revolve around the convergence of cancer biology, data science, epidemiology, and omics data. Proficient in sequencing data analysis, I have experience in developing R packages, implementing version control on GitHub, and proficiently managing data using SQL.
 
-# Welcome!
+My enthusiasm lies in leveraging data and analytics to address health-related challenges. I am dedicated to data analysis and contributing to open-source software that elevates the advancements in oncology research.
 
-------------------------------------------------------------------------
+### Previous/current research  
+-   Chromosome segregation in human cells and its regulation by SAC
+-   Identify potential marker metabolites using mass spectroscopy data
+-   Identify novel isoforms of interferon-stimulated genes using RNA-seq data
+-   Association of parity and breastfeeding with breast cancer prognosis
 
-Hey there! I am Yingying Yu, and I'm a badminton enthusiast! Whether it's smashing shuttlecocks on the court or watching the pros, badminton is my passion. Let me know if you want to join our JHU varsity team and win the mission!
-
-I am a dog person but also fond of kitties! Shoot me your favorite pic of your baby and I will exchange with mine! FYI, I have a 7 years old brown poodle named Hugo :)
-
-------------------------------------------------------------------------
-
-# Education
-
-**MS in Cancer Epidemiology** (2024) \| Johns Hopkins University
-
-**BA in Biology** (2022) \| New York University
+### Educational training  
+**MS in Epidemiology (2024)** | Johns Hopkins University  
+**BA in Biology (2022)** | New York University

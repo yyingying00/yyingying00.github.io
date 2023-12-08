@@ -1,7 +1,8 @@
 ---
-title: "Example analysis"
+title: "Effects on Natural Menopausal Age by Number of Childbirth"
 author: "Yingying Yu"
 date: "2023-11-1"
+categories: [NHANES, Epidemiology]
 bibliography: reference1.bib
 format:
   html:
@@ -17,13 +18,7 @@ format:
 
 # Research Objective
 
-The objective of this study is to investigate whether the age at which natural menopause occurs is influenced by the number of childbirths among American women. This research utilizes data from the 2017-18 National Health and Nutrition Examination Survey (NHANES). Our hypothesis posits that an increased age at menopause is associated with a higher number of childbirths.
-
-::: column-margin
-Note:
-
-This analysis is conducted for researchers, doctors, or anyone who is interested in the risk factors of menopause.
-:::
+The objective of this study is to investigate whether the age at which natural menopause occurs is influenced by the number of childbirths among American women. This research utilizes data from the 2017-18 National Health and Nutrition Examination Survey (NHANES). Our hypothesis posits that an increased age at menopause is associated with a higher number of childbirths.  
 
 ------------------------------------------------------------------------
 
@@ -230,7 +225,7 @@ This association continued to appear after adjustment in the full model. In mult
 # Function summary
 
 | Package name | Functions used                                                  |
-|------------------|------------------------------------------------------|
+|--------------|-----------------------------------------------------------------|
 | `tidyr`      | `drop_na`                                                       |
 | `dplyr`      | `arrange` `mutate` `group_by` `summarise`                       |
 | `ggplot2`    | `geom_bar` `geom_vline` `geom_point` `facet_wrap` `geom_smooth` |

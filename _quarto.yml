@@ -4,17 +4,31 @@ project:
 
 website:
   title: "Yingying Yu"
+  favicon: fish.png
   navbar:
-    left:
+    right:
       - href: index.qmd
         text: Home
-      - href: about.qmd
-      - Example analysis.qmd
+      - href: projects.qmd
+        text: Projects
+      - icon: github 
+        href: https://github.com/yyingying00
+  #page-footer:
+  #  background: light 
+  #  left:
+  #    - "Copyright 2023, Yingying Yu"
+  #  right:
+  #    - icon: github
+  #      href: https://github.com/yyingying00
+  #    - icon: envelope
+  #      href: mailto:yyu109@jhmi.edu 
 
 format:
   html:
-    theme: cosmo
-    css: styles.css
+    theme: 
+      - cosmo
+      - styles.scss
+    #css: styles.css
     toc: true
     page-layout: full
 
