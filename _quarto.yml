@@ -6,11 +6,12 @@ website:
   title: "Yingying Yu"
   favicon: fish.png
   navbar:
-    right:
+    left:
       - href: index.qmd
         text: Home
       - href: projects.qmd
         text: Projects
+    right: 
       - icon: github 
         href: https://github.com/yyingying00
   #page-footer:

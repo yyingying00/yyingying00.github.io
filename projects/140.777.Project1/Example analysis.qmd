@@ -18,7 +18,7 @@ format:
 
 # Research Objective
 
-The objective of this study is to investigate whether the age at which natural menopause occurs is influenced by the number of childbirths among American women. This research utilizes data from the 2017-18 National Health and Nutrition Examination Survey (NHANES). Our hypothesis posits that an increased age at menopause is associated with a higher number of childbirths.  
+The objective of this study is to investigate whether the age at which natural menopause occurs is influenced by the number of childbirths among American women. This research utilizes data from the 2017-18 National Health and Nutrition Examination Survey (NHANES). Our hypothesis posits that an increased age at menopause is associated with a higher number of childbirths.
 
 ------------------------------------------------------------------------
 
