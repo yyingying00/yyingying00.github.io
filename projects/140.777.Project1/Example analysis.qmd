@@ -1,8 +1,9 @@
 ---
 title: "Effects on Natural Menopausal Age by Number of Childbirth"
 author: "Yingying Yu"
-date: "2023-11-1"
-categories: [NHANES, Epidemiology]
+date: 2023-11-1
+description: Example analysis of an Epidemiology topic
+categories: [R, NHANES, Epidemiology]
 bibliography: reference1.bib
 format:
   html:
@@ -225,7 +226,7 @@ This association continued to appear after adjustment in the full model. In mult
 # Function summary
 
 | Package name | Functions used                                                  |
-|--------------|-----------------------------------------------------------------|
+|----------------|--------------------------------------------------------|
 | `tidyr`      | `drop_na`                                                       |
 | `dplyr`      | `arrange` `mutate` `group_by` `summarise`                       |
 | `ggplot2`    | `geom_bar` `geom_vline` `geom_point` `facet_wrap` `geom_smooth` |

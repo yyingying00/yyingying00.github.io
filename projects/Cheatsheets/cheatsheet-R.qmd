@@ -1,8 +1,9 @@
 ---
 title: "Cheatsheet for R"
 author: "Yingying Yu"
-date: "2023-12-10"
-categories: [R, Data analysis]
+date: 2023-12-10
+description: Useful packages and their famous functions in data analysis
+categories: [R, tidyverse]
 ---
 
 # Introduction
@@ -14,15 +15,15 @@ During the process of data analysis, especially in **data wrangling** and **data
 ## Package `tidyverse`
 
 ::: callout-note
-The package `Tidyverse` included different small packages, below are what I use frequently:
+The package `tidyverse` included different small packages, below are what I use frequently:
 
-| Name      | Core usage                   |
-|-----------|------------------------------|
-| `dplyr`   | Data manipulation            |
-| `tidyr`   | Tidy data                    |
-| `purrr`   | Replace loops                |
-| `stringr` | Convert strings              |
-| `forcats` | Handle categorical variables |
+| Package Name | Core Usage                   |
+|--------------|------------------------------|
+| `dplyr`      | Data manipulation            |
+| `tidyr`      | Tidy data                    |
+| `purrr`      | Replace loops                |
+| `stringr`    | Convert strings              |
+| `forcats`    | Handle categorical variables |
 
 More `tidyverse` packages can be found on this website: <https://www.tidyverse.org/packages/>.
 :::
@@ -46,7 +47,7 @@ table(ca_race$region)
 One of the most efficient way of using functions within the `dplyr` package is along with the pipe `%>%`. Since the function names are human-readable and easy to follow, stacking up the functions using pipe make your data wrangling process clean and concise.
 :::
 
-**The most common functions are**      
+**The most common functions are**\
 `mutate()`: adds new variables that are functions of existing variables\
 `filter()`: picks cases based on their values in a variable\
 `group_by()`: perform any operation by group\
@@ -84,7 +85,7 @@ More usage of `dyplr` can be found [here](https://github.com/rstudio/cheatsheets
 
 ### Package `tidyr`
 
-**Common functions:**    
+**Common functions:**\
 `pivot_longer()` and `pivot_wider()`: to converts data between long and wide forms\
 `complete()`: make implicit missing values explicit\
 `drop_na()`: make explicit missing values implicit\
