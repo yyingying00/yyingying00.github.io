@@ -9,7 +9,7 @@ categories: [R, Data analysis]
 
 During the process of data analysis, especially in **data wrangling** and **data visualization**, we often perform similar workflows to reach our target. For example, some functions within the `tidyverse` are really useful to do exploratory data analysis (EDA); to fit our data to a statistical model, we need to first transform our raw data to a specific form of data frame. In addition, we might have a preferred way to present our graphs from the result. This article summarized some of my routine commands, and this page would be keep updating for the future.
 
-# Data wrangling 
+# Data wrangling
 
 ## Package `tidyverse`
 
@@ -24,7 +24,7 @@ The package `Tidyverse` included different small packages, below are what I use 
 | `stringr` | Convert strings              |
 | `forcats` | Handle categorical variables |
 
-More `tidyverse` packages can be found on this website: https://www.tidyverse.org/packages/.
+More `tidyverse` packages can be found on this website: <https://www.tidyverse.org/packages/>.
 :::
 
 ------------------------------------------------------------------------
@@ -46,16 +46,15 @@ table(ca_race$region)
 One of the most efficient way of using functions within the `dplyr` package is along with the pipe `%>%`. Since the function names are human-readable and easy to follow, stacking up the functions using pipe make your data wrangling process clean and concise.
 :::
 
-The most common functions are
-
+**The most common functions are**      
 `mutate()`: adds new variables that are functions of existing variables\
 `filter()`: picks cases based on their values in a variable\
 `group_by()`: perform any operation by group\
-`summarise()`: calculate the mean, median, sd, min, max, first, last, n, n_distinct of a variable
-`arrange()`: changes the ordering of the rows   
-`case_when()`: vectorise multiple `if_else()` statements
-
+`summarise()`: calculate the mean, median, sd, min, max, first, last, n, n_distinct of a variable\
+`arrange()`: changes the ordering of the rows\
+`case_when()`: vectorise multiple `if_else()` statements\
 `na.rm = TRUE`: calculate by removing massing values
+
 ```{r}
 ca_race <- ca_race %>% 
   mutate(total = rowSums(select(.,whiteE, blackE, nativeE, asianE, islanderE, otherE), 
@@ -79,14 +78,13 @@ sum_table <- ca_race %>%
 sum_table
 ```
 
-More usage of `dyplr` can be found here: https://github.com/rstudio/cheatsheets/blob/main/data-transformation.pdf
+More usage of `dyplr` can be found [here](https://github.com/rstudio/cheatsheets/blob/main/data-transformation.pdf)
 
 ------------------------------------------------------------------------
 
 ### Package `tidyr`
 
-Common functions:
-
+**Common functions:**    
 `pivot_longer()` and `pivot_wider()`: to converts data between long and wide forms\
 `complete()`: make implicit missing values explicit\
 `drop_na()`: make explicit missing values implicit\
@@ -100,21 +98,21 @@ sum_table <- sum_table %>%
                values_to = "Value")
 sum_table
 ```
-  
-More usage of `tidyr` can be found here: https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf
 
+More usage of `tidyr` can be found [here](https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf)
 
 ------------------------------------------------------------------------
 
 ### Package `forcats`
 
-Common functions:
-`fct_reorder()`: Reordering a factor by another variable   
-`fct_infreq()`: Reordering a factor by the frequency of values    
-`fct_relevel()`: Changing the order of a factor by hand    
-`fct_lump()`: Collapsing the least/most frequent values of a factor into “other”  
+**Common functions:**\
+`fct_reorder()`: Reordering a factor by another variable\
+`fct_infreq()`: Reordering a factor by the frequency of values\
+`fct_relevel()`: Changing the order of a factor by hand\
+`fct_lump()`: Collapsing the least/most frequent values of a factor into "other"
 
 ```{r}
+#| warning: false
 ca_race$level <- fct_relevel(ca_race$level, c("More than 500000",
                                               "300001 - 500000",
                                               "150001 - 300000",
@@ -123,25 +121,25 @@ ca_race$level <- fct_relevel(ca_race$level, c("More than 500000",
 levels(ca_race$level)
 ```
 
-More usage of `forcats` can be found here: https://forcats.tidyverse.org
+More usage of `forcats` can be found [here](https://forcats.tidyverse.org)
 
---------------
+------------------------------------------------------------------------
 
 # Data visualization
 
 ## Package `ggplot2`
 
-This is most famous package to visualize data in the R community. Although `ggplot2` is also part of the `tidyverse` package, we put it here for the sake of separate topics. 
+This is most famous package to visualize data in the R community. Although `ggplot2` is also part of the `tidyverse` package, we put it here for the sake of separate topics.
 
-Common functions:
-`geom_point`: adds points to the plot  
-`geom_line`: connects points with lines   
-`geom_histogram(): creates histograms  
-`geom_bar`: creates bar plots  
-`geom_boxplot()`: generates boxplots  
-`geom_vline`: generate reference lines (horizontal, vertical, or diagonal)  
-`geom_smooth`: adds a smoothed line to a scatterplot  
-`facet_wrap`: facets the plot into multiple panels based on a categorical variable  
+**Common functions:**\
+`geom_point`: adds points to the plot\
+`geom_line`: connects points with lines\
+`geom_histogram()`: creates histograms\
+`geom_bar`: creates bar plots\
+`geom_boxplot()`: generates boxplots\
+`geom_vline`: generate reference lines (horizontal, vertical, or diagonal)\
+`geom_smooth`: adds a smoothed line to a scatterplot\
+`facet_wrap`: facets the plot into multiple panels based on a categorical variable
 
 ```{r}
 sum_table %>% 
@@ -156,6 +154,4 @@ sum_table %>%
   theme_minimal()
 ```
 
-More usage of `ggplot2` can be found here: https://github.com/rstudio/cheatsheets/blob/main/data-visualization.pdf
-------------------------------------------------------------------------
-
+More usage of `ggplot2` can be found [here](https://github.com/rstudio/cheatsheets/blob/main/data-visualization.pdf)
