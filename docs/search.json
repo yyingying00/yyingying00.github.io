@@ -11,7 +11,7 @@
     "href": "projects.html",
     "title": "Projects",
     "section": "",
-    "text": "Cheatsheet for R\n\n\n\n\n\n\n\nR\n\n\ntidyverse\n\n\n\n\nUseful packages and their famous functions in data analysis\n\n\n\n\n\n\nDec 10, 2023\n\n\nYingying Yu\n\n\n\n\n\n\n  \n\n\n\n\nEffects on Natural Menopausal Age by Number of Childbirth\n\n\n\n\n\n\n\nR\n\n\nNHANES\n\n\nEpidemiology\n\n\n\n\nExample analysis of an Epidemiology topic\n\n\n\n\n\n\nNov 1, 2023\n\n\nYingying Yu\n\n\n\n\n\n\nNo matching items"
+    "text": "Dashboard\n\n\n\n\n\n\n\nR\n\n\nshiny\n\n\nflexdashboard\n\n\n\n\nA dashboard for US tornado data from 1950 to 2021\n\n\n\n\n\n\nDec 17, 2023\n\n\nYingying Yu\n\n\n\n\n\n\n  \n\n\n\n\nCheatsheet for R\n\n\n\n\n\n\n\nR\n\n\ntidyverse\n\n\n\n\nUseful packages and their famous functions in data analysis\n\n\n\n\n\n\nDec 10, 2023\n\n\nYingying Yu\n\n\n\n\n\n\n  \n\n\n\n\nEffects on Natural Menopausal Age by Number of Childbirth\n\n\n\n\n\n\n\nR\n\n\nNHANES\n\n\nEpidemiology\n\n\n\n\nExample analysis of an Epidemiology topic\n\n\n\n\n\n\nNov 1, 2023\n\n\nYingying Yu\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "projects/Cheatsheets/cheatsheet-R.html",
@@ -54,5 +54,33 @@
     "title": "Cheatsheet for R",
     "section": "More usage of ggplot2 can be found here: https://github.com/rstudio/cheatsheets/blob/main/data-visualization.pdf",
     "text": "More usage of ggplot2 can be found here: https://github.com/rstudio/cheatsheets/blob/main/data-visualization.pdf"
+  },
+  {
+    "objectID": "projects/Dashboard/dashboard.html",
+    "href": "projects/Dashboard/dashboard.html",
+    "title": "Dashboard",
+    "section": "",
+    "text": "This dashboard was created for two purposes: \n\nTo understand the tornado trends happened through the years from 1950 to 2021\nTo practice building dashboards with flexdashboard and Shiny for the BSPH course Statistical Programming Paradigms and Workflows (140.777)"
+  },
+  {
+    "objectID": "projects/Dashboard/dashboard.html#purposes",
+    "href": "projects/Dashboard/dashboard.html#purposes",
+    "title": "Dashboard",
+    "section": "",
+    "text": "This dashboard was created for two purposes: \n\nTo understand the tornado trends happened through the years from 1950 to 2021\nTo practice building dashboards with flexdashboard and Shiny for the BSPH course Statistical Programming Paradigms and Workflows (140.777)"
+  },
+  {
+    "objectID": "projects/Dashboard/dashboard.html#data-source",
+    "href": "projects/Dashboard/dashboard.html#data-source",
+    "title": "Dashboard",
+    "section": "Data source",
+    "text": "Data source\nThe source data comes from NOAA’s National Weather Service Storm Prediction Center Severe Weather Maps, Graphics, and Data Page, The data dictionary can be found here."
+  },
+  {
+    "objectID": "projects/Dashboard/dashboard.html#the-link",
+    "href": "projects/Dashboard/dashboard.html#the-link",
+    "title": "Dashboard",
+    "section": "The Link",
+    "text": "The Link\nThe dashboard is deployed using shinyapps.io\nAccess the the dashboard here:"
   }
 ]

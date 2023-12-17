@@ -1,0 +1,25 @@
+---
+title: "Dashboard"
+author: "Yingying Yu"
+date: 2023-12-17
+description: A dashboard for US tornado data from 1950 to 2021
+categories: [R, shiny, flexdashboard]
+---
+
+## Purposes
+
+**This dashboard was created for two purposes: **
+
+1. To understand the tornado trends happened through the years from 1950 to 2021
+
+2. To practice building dashboards with **flexdashboard** and **Shiny** for the BSPH course Statistical Programming Paradigms and Workflows (140.777) 
+
+
+## Data source 
+  
+The source data comes from NOAA's National Weather Service Storm Prediction Center [Severe Weather Maps, Graphics, and Data Page](https://www.spc.noaa.gov/wcm/#data), The data dictionary can be found [here](https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-05-16/readme.md).
+
+## The Link
+
+The dashboard is deployed using [shinyapps.io](https://www.shinyapps.io)   
+Access the the dashboard here: 
