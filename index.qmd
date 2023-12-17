@@ -9,7 +9,7 @@ about:
   links: 
     - icon: linkedin
       text: LinkedIn
-      href: www.linkedin.com/in/yingying-yu-690322242
+      href: https://linkedin.com/in/yingying-yu-690322242
     - icon: envelope
       text: Email
       href: mailto:yyu109@jhmi.edu
