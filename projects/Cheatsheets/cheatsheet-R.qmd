@@ -2,17 +2,21 @@
 title: "Cheatsheet for R"
 author: "Yingying Yu"
 date: 2023-12-10
-description: Useful packages and their famous functions in data analysis
+description: Useful packages and their famous functions in data analysis and data management
 categories: [R, tidyverse]
 ---
 
 # Introduction
 
-During the process of data analysis, especially in **data wrangling** and **data visualization**, we often perform similar workflows to reach our target. For example, some functions within the `tidyverse` are really useful to do exploratory data analysis (EDA); to fit our data to a statistical model, we need to first transform our raw data to a specific form of data frame. In addition, we might have a preferred way to present our graphs from the result. This article summarized some of my routine commands, and this page would be keep updating for the future.
+During the process of data analysis, especially in **data wrangling** and **data visualization**, we often perform similar workflows to reach our target. For example, some functions within the `tidyverse` are really useful to do exploratory data analysis (EDA). To fit our data to a statistical model, we need to first transform our raw data to a specific form of data frame. We might also have a preferred way to present our graphs from the result. This article summarized some of my routine commands, and this page would be keep updating for the future.
 
-# Data wrangling
+On the other hand, managing data is quite different from analyzing data, especially if you have a large clinical data set with is continually updating during the research period. In the second part of this page, I put some helpful commands for simple data management.
 
-## Package `tidyverse`
+# Data Analysis
+
+## Data Wrangling
+
+### Package `tidyverse`
 
 ::: callout-note
 The package `tidyverse` included different small packages, below are what I use frequently:
@@ -126,21 +130,21 @@ More usage of `forcats` can be found [here](https://forcats.tidyverse.org)
 
 ------------------------------------------------------------------------
 
-# Data visualization
+## Data visualization
 
-## Package `ggplot2`
+### Package `ggplot2`
 
 This is most famous package to visualize data in the R community. Although `ggplot2` is also part of the `tidyverse` package, we put it here for the sake of separate topics.
 
 **Common functions:**\
-`geom_point`: adds points to the plot\
-`geom_line`: connects points with lines\
+`geom_point()`: adds points to the plot\
+`geom_line()`: connects points with lines\
 `geom_histogram()`: creates histograms\
-`geom_bar`: creates bar plots\
+`geom_bar()`: creates bar plots\
 `geom_boxplot()`: generates boxplots\
-`geom_vline`: generate reference lines (horizontal, vertical, or diagonal)\
-`geom_smooth`: adds a smoothed line to a scatterplot\
-`facet_wrap`: facets the plot into multiple panels based on a categorical variable
+`geom_vline()`: generate reference lines (horizontal, vertical, or diagonal)\
+`geom_smooth()`: adds a smoothed line to a scatterplot\
+`facet_wrap()`: facets the plot into multiple panels based on a categorical variable
 
 ```{r}
 sum_table %>% 
@@ -156,3 +160,85 @@ sum_table %>%
 ```
 
 More usage of `ggplot2` can be found [here](https://github.com/rstudio/cheatsheets/blob/main/data-visualization.pdf)
+
+-------------------
+
+# Data Management
+
+In the actual data management process over time in a typical research study, you want to create multiple R script files. Each R script file will modify the previous version of the data file and then save a newly named version. This process allows you to easily recreate your work and to re-run your data management steps to an exact endpoint.  
+
+## Review data
+
+`names(data)`: Show the column names    
+`str(data)`: Show the structure of our data    
+`head(data,2)`: Show the first 2 rows of data     
+`tail(data,2)`: Show the last 2 rows of data     
+`nrow(data)`: Show the number of rows     
+`ncol(data)`: Show the number of columns    
+`object.size(data)`: Size of the dataset in memory     
+
+In the package `skimr`, there is a function `skim` showing the structure and details of data 
+```{r}
+library(tidyverse)
+library(skimr)
+skim(ca_race)
+```
+
+```{r, echo=FALSE}
+bl_site1_raw <- read.csv("baseline_data_siteid_1.csv")
+bl_site2_raw <- read.csv("baseline_data_siteid_2.csv")
+f_site1_raw <- read.csv("followup_data_siteid_1.csv")
+f_site2_raw <- read.csv("followup_data_siteid_2.csv")
+```
+
+## Manipulating records
+ 
+`distinct()`: remove duplicates     
+`dmy()`: convert date strings to dates, can also be `ymd()` `ydm()`, and so on    
+`bind_rows()`: bind (append) two data together by rows    
+`left-join()`: merge two data together by columns    
+`replace()`: use it within mutate() to change specific data values    
+`factor()`: categorize the data using levels and labels     
+`cut()`: breaks the given vector into the intervals specified in "breaks"     
+```{r}
+# Bind baseline data together
+bl_data <- bind_rows(bl_site1_raw, bl_site2_raw)
+# Bind follow-up data together
+f_data <- bind_rows(f_site1_raw, f_site2_raw)
+# Join baseline and followup data
+all_data <- left_join(bl_data, f_data, by=c("siteid"="siteid","hhid"="hhid","childid"="childid"))
+
+# Add new column using mutate() for record ID with concatenated site/hh/childid
+# Re-order the columns using select(). The everything() is all unspecified columns.
+all_data <- all_data |> 
+  mutate(record_id = paste0(siteid,hhid,childid)) |>  
+  select(record_id,everything())
+# create factor
+all_data$siteid <- factor(all_data$siteid,
+                   levels=c(1,2),
+                   labels=c("JHU","UMD"))
+# cut a variable
+all_data$weight_cut <- cut(all_data$weight,breaks=c(0,10,Inf), labels=c("low","hi"))
+# update a record
+all_data <- all_data |> 
+  mutate(reltns = replace(reltns, record_id == 156431, 2))
+
+all_data[all_data$record_id == 156431,]
+```
+
+## Exporting data
+
+```{r}
+# Write a csv file
+write.csv(all_data, file="data_out.csv", row.names = FALSE)
+# Save it in rda or RDS format
+save(all_data, file = "tuesdata_tornados.rda")
+# Save the workspace with the data
+save.image(file="data01.RData")
+```
+
+
+
+
+
+

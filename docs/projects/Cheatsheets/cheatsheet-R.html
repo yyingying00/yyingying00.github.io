@@ -8,7 +8,7 @@
 
 <meta name="author" content="Yingying Yu">
 <meta name="dcterms.date" content="2023-12-10">
-<meta name="description" content="Useful packages and their famous functions in data analysis">
+<meta name="description" content="Useful packages and their famous functions in data analysis and data management">
 
 <title>Yingying Yu - Cheatsheet for R</title>
 <style>
@@ -147,7 +147,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <h1 class="title">Cheatsheet for R</h1>
                   <div>
         <div class="description">
-          Useful packages and their famous functions in data analysis
+          Useful packages and their famous functions in data analysis and data management
         </div>
       </div>
                           <div class="quarto-categories">
@@ -186,18 +186,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#data-wrangling" id="toc-data-wrangling" class="nav-link" data-scroll-target="#data-wrangling">Data wrangling</a>
+  <li><a href="#data-analysis" id="toc-data-analysis" class="nav-link" data-scroll-target="#data-analysis">Data Analysis</a>
   <ul class="collapse">
-  <li><a href="#package-tidyverse" id="toc-package-tidyverse" class="nav-link" data-scroll-target="#package-tidyverse">Package <code>tidyverse</code></a>
+  <li><a href="#data-wrangling" id="toc-data-wrangling" class="nav-link" data-scroll-target="#data-wrangling">Data Wrangling</a>
   <ul class="collapse">
+  <li><a href="#package-tidyverse" id="toc-package-tidyverse" class="nav-link" data-scroll-target="#package-tidyverse">Package <code>tidyverse</code></a></li>
   <li><a href="#package-dplyr" id="toc-package-dplyr" class="nav-link" data-scroll-target="#package-dplyr">Package <code>dplyr</code></a></li>
   <li><a href="#package-tidyr" id="toc-package-tidyr" class="nav-link" data-scroll-target="#package-tidyr">Package <code>tidyr</code></a></li>
   <li><a href="#package-forcats" id="toc-package-forcats" class="nav-link" data-scroll-target="#package-forcats">Package <code>forcats</code></a></li>
   </ul></li>
-  </ul></li>
   <li><a href="#data-visualization" id="toc-data-visualization" class="nav-link" data-scroll-target="#data-visualization">Data visualization</a>
   <ul class="collapse">
   <li><a href="#package-ggplot2" id="toc-package-ggplot2" class="nav-link" data-scroll-target="#package-ggplot2">Package <code>ggplot2</code></a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#data-management" id="toc-data-management" class="nav-link" data-scroll-target="#data-management">Data Management</a>
+  <ul class="collapse">
+  <li><a href="#review-data" id="toc-review-data" class="nav-link" data-scroll-target="#review-data">Review data</a></li>
+  <li><a href="#manipulating-records" id="toc-manipulating-records" class="nav-link" data-scroll-target="#manipulating-records">Manipulating records</a></li>
+  <li><a href="#exporting-data" id="toc-exporting-data" class="nav-link" data-scroll-target="#exporting-data">Exporting data</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -214,12 +221,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>During the process of data analysis, especially in <strong>data wrangling</strong> and <strong>data visualization</strong>, we often perform similar workflows to reach our target. For example, some functions within the <code>tidyverse</code> are really useful to do exploratory data analysis (EDA); to fit our data to a statistical model, we need to first transform our raw data to a specific form of data frame. In addition, we might have a preferred way to present our graphs from the result. This article summarized some of my routine commands, and this page would be keep updating for the future.</p>
+<p>During the process of data analysis, especially in <strong>data wrangling</strong> and <strong>data visualization</strong>, we often perform similar workflows to reach our target. For example, some functions within the <code>tidyverse</code> are really useful to do exploratory data analysis (EDA). To fit our data to a statistical model, we need to first transform our raw data to a specific form of data frame. We might also have a preferred way to present our graphs from the result. This article summarized some of my routine commands, and this page would be keep updating for the future.</p>
+<p>On the other hand, managing data is quite different from analyzing data, especially if you have a large clinical data set with is continually updating during the research period. In the second part of this page, I put some helpful commands for simple data management.</p>
 </section>
-<section id="data-wrangling" class="level1">
-<h1>Data wrangling</h1>
-<section id="package-tidyverse" class="level2">
-<h2 class="anchored" data-anchor-id="package-tidyverse">Package <code>tidyverse</code></h2>
+<section id="data-analysis" class="level1">
+<h1>Data Analysis</h1>
+<section id="data-wrangling" class="level2">
+<h2 class="anchored" data-anchor-id="data-wrangling">Data Wrangling</h2>
+<section id="package-tidyverse" class="level3">
+<h3 class="anchored" data-anchor-id="package-tidyverse">Package <code>tidyverse</code></h3>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -265,6 +275,7 @@ Note
 </div>
 </div>
 <hr>
+</section>
 <section id="package-dplyr" class="level3">
 <h3 class="anchored" data-anchor-id="package-dplyr">Package <code>dplyr</code></h3>
 <p>When we first uploaded our data, the first instinct to do is look it up, the <code>glimpse()</code> function provide the number of rows and columns of the data frame, as well as the types of data of every column. The base R <code>table()</code> function can show the number of each kind of a variable.</p>
@@ -406,21 +417,20 @@ Tip
 <hr>
 </section>
 </section>
-</section>
-<section id="data-visualization" class="level1">
-<h1>Data visualization</h1>
-<section id="package-ggplot2" class="level2">
-<h2 class="anchored" data-anchor-id="package-ggplot2">Package <code>ggplot2</code></h2>
+<section id="data-visualization" class="level2">
+<h2 class="anchored" data-anchor-id="data-visualization">Data visualization</h2>
+<section id="package-ggplot2" class="level3">
+<h3 class="anchored" data-anchor-id="package-ggplot2">Package <code>ggplot2</code></h3>
 <p>This is most famous package to visualize data in the R community. Although <code>ggplot2</code> is also part of the <code>tidyverse</code> package, we put it here for the sake of separate topics.</p>
 <p><strong>Common functions:</strong><br>
-<code>geom_point</code>: adds points to the plot<br>
-<code>geom_line</code>: connects points with lines<br>
+<code>geom_point()</code>: adds points to the plot<br>
+<code>geom_line()</code>: connects points with lines<br>
 <code>geom_histogram()</code>: creates histograms<br>
-<code>geom_bar</code>: creates bar plots<br>
+<code>geom_bar()</code>: creates bar plots<br>
 <code>geom_boxplot()</code>: generates boxplots<br>
-<code>geom_vline</code>: generate reference lines (horizontal, vertical, or diagonal)<br>
-<code>geom_smooth</code>: adds a smoothed line to a scatterplot<br>
-<code>facet_wrap</code>: facets the plot into multiple panels based on a categorical variable</p>
+<code>geom_vline()</code>: generate reference lines (horizontal, vertical, or diagonal)<br>
+<code>geom_smooth()</code>: adds a smoothed line to a scatterplot<br>
+<code>facet_wrap()</code>: facets the plot into multiple panels based on a categorical variable</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>sum_table <span class="sc">%&gt;%</span> </span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Race, <span class="at">y =</span> Value)) <span class="sc">+</span></span>
@@ -437,6 +447,339 @@ Tip
 </div>
 </div>
 <p>More usage of <code>ggplot2</code> can be found <a href="https://github.com/rstudio/cheatsheets/blob/main/data-visualization.pdf">here</a></p>
+<hr>
+</section>
+</section>
+</section>
+<section id="data-management" class="level1">
+<h1>Data Management</h1>
+<p>In the actual data management process over time in a typical research study, you want to create multiple R script files. Each R script file will modify the previous version of the data file and then save a newly named version. This process allows you to easily recreate your work and to re-run your data management steps to an exact endpoint.</p>
+<section id="review-data" class="level2">
+<h2 class="anchored" data-anchor-id="review-data">Review data</h2>
+<p><code>names(data)</code>: Show the column names<br>
+<code>str(data)</code>: Show the structure of our data<br>
+<code>head(data,2)</code>: Show the first 2 rows of data<br>
+<code>tail(data,2)</code>: Show the last 2 rows of data<br>
+<code>nrow(data)</code>: Show the number of rows<br>
+<code>ncol(data)</code>: Show the number of columns<br>
+<code>object.size(data)</code>: Size of the dataset in memory</p>
+<p>In the package <code>skimr</code>, there is a function <code>skim</code> showing the structure and details of data</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(ca_race)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Name</td>
+<td style="text-align: left;">ca_race</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Number of rows</td>
+<td style="text-align: left;">58</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Number of columns</td>
+<td style="text-align: left;">11</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">_______________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Column type frequency:</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">character</td>
+<td style="text-align: left;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">factor</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">numeric</td>
+<td style="text-align: left;">7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">________________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Group variables</td>
+<td style="text-align: left;">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 13%">
+<col style="width: 19%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 8%">
+<col style="width: 12%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">min</th>
+<th style="text-align: right;">max</th>
+<th style="text-align: right;">empty</th>
+<th style="text-align: right;">n_unique</th>
+<th style="text-align: right;">whitespace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">GEOID</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">58</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NAME</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">58</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">region</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: factor</strong></p>
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 11%">
+<col style="width: 15%">
+<col style="width: 9%">
+<col style="width: 10%">
+<col style="width: 37%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: left;">ordered</th>
+<th style="text-align: right;">n_unique</th>
+<th style="text-align: left;">top_counts</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">level</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">300: 30, 150: 14, Mor: 7, 500: 7</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 9%">
+<col style="width: 13%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 5%">
+<col style="width: 9%">
+<col style="width: 8%">
+<col style="width: 9%">
+<col style="width: 6%">
+<col style="width: 5%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">sd</th>
+<th style="text-align: right;">p0</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">p50</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p100</th>
+<th style="text-align: left;">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">whiteE</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">73867.97</td>
+<td style="text-align: right;">23435.16</td>
+<td style="text-align: right;">41080</td>
+<td style="text-align: right;">57731.75</td>
+<td style="text-align: right;">66382.5</td>
+<td style="text-align: right;">86247.25</td>
+<td style="text-align: right;">146043</td>
+<td style="text-align: left;">▇▆▃▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">blackE</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0.79</td>
+<td style="text-align: right;">61877.83</td>
+<td style="text-align: right;">21661.67</td>
+<td style="text-align: right;">14946</td>
+<td style="text-align: right;">45840.00</td>
+<td style="text-align: right;">66883.5</td>
+<td style="text-align: right;">78232.25</td>
+<td style="text-align: right;">118322</td>
+<td style="text-align: left;">▃▇▇▆▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">nativeE</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0.86</td>
+<td style="text-align: right;">57756.06</td>
+<td style="text-align: right;">20306.70</td>
+<td style="text-align: right;">22961</td>
+<td style="text-align: right;">41673.00</td>
+<td style="text-align: right;">53716.0</td>
+<td style="text-align: right;">72275.50</td>
+<td style="text-align: right;">101023</td>
+<td style="text-align: left;">▅▇▅▅▃</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">asianE</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0.84</td>
+<td style="text-align: right;">86131.61</td>
+<td style="text-align: right;">27743.71</td>
+<td style="text-align: right;">38456</td>
+<td style="text-align: right;">67396.00</td>
+<td style="text-align: right;">80530.0</td>
+<td style="text-align: right;">101563.00</td>
+<td style="text-align: right;">155757</td>
+<td style="text-align: left;">▂▇▃▃▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">islanderE</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">0.52</td>
+<td style="text-align: right;">77819.13</td>
+<td style="text-align: right;">22980.83</td>
+<td style="text-align: right;">26776</td>
+<td style="text-align: right;">60479.75</td>
+<td style="text-align: right;">79714.0</td>
+<td style="text-align: right;">96130.25</td>
+<td style="text-align: right;">120275</td>
+<td style="text-align: left;">▁▆▅▇▂</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">otherE</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.90</td>
+<td style="text-align: right;">59723.19</td>
+<td style="text-align: right;">13598.26</td>
+<td style="text-align: right;">26711</td>
+<td style="text-align: right;">49052.75</td>
+<td style="text-align: right;">58672.0</td>
+<td style="text-align: right;">69996.50</td>
+<td style="text-align: right;">93750</td>
+<td style="text-align: left;">▁▇▇▆▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">total</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">339295.76</td>
+<td style="text-align: right;">143907.43</td>
+<td style="text-align: right;">52034</td>
+<td style="text-align: right;">252112.25</td>
+<td style="text-align: right;">353818.5</td>
+<td style="text-align: right;">433545.00</td>
+<td style="text-align: right;">639623</td>
+<td style="text-align: left;">▃▃▇▅▂</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="manipulating-records" class="level2">
+<h2 class="anchored" data-anchor-id="manipulating-records">Manipulating records</h2>
+<p><code>distinct()</code>: remove duplicates<br>
+<code>dmy()</code>: convert date strings to dates, can also be <code>ymd()</code> <code>ydm()</code>, and so on<br>
+<code>bind_rows()</code>: bind (append) two data together by rows<br>
+<code>left-join()</code>: merge two data together by columns<br>
+<code>replace()</code>: use it within mutate() to change specific data values<br>
+<code>factor()</code>: categorize the data using levels and labels<br>
+<code>cut()</code>: breaks the given vector into the intervals specified in “breaks”</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bind baseline data together</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>bl_data <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(bl_site1_raw, bl_site2_raw)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Bind follow-up data together</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>f_data <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(f_site1_raw, f_site2_raw)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Join baseline and followup data</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>all_data <span class="ot">&lt;-</span> <span class="fu">left_join</span>(bl_data, f_data, <span class="at">by=</span><span class="fu">c</span>(<span class="st">"siteid"</span><span class="ot">=</span><span class="st">"siteid"</span>,<span class="st">"hhid"</span><span class="ot">=</span><span class="st">"hhid"</span>,<span class="st">"childid"</span><span class="ot">=</span><span class="st">"childid"</span>))</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Add new column using mutate() for record ID with concatenated site/hh/childid</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Re-order the columns using select(). The everything() is all unspecified columns.</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>all_data <span class="ot">&lt;-</span> all_data <span class="sc">|&gt;</span> </span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">record_id =</span> <span class="fu">paste0</span>(siteid,hhid,childid)) <span class="sc">|&gt;</span>  </span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(record_id,<span class="fu">everything</span>())</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co"># create factor</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>all_data<span class="sc">$</span>siteid <span class="ot">&lt;-</span> <span class="fu">factor</span>(all_data<span class="sc">$</span>siteid,</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>                   <span class="at">levels=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>                   <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"JHU"</span>,<span class="st">"UMD"</span>))</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="co"># cut a variable</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>all_data<span class="sc">$</span>weight_cut <span class="ot">&lt;-</span> <span class="fu">cut</span>(all_data<span class="sc">$</span>weight,<span class="at">breaks=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>,<span class="cn">Inf</span>), <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"low"</span>,<span class="st">"hi"</span>))</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="co"># update a record</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>all_data <span class="ot">&lt;-</span> all_data <span class="sc">|&gt;</span> </span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">reltns =</span> <span class="fu">replace</span>(reltns, record_id <span class="sc">==</span> <span class="dv">156431</span>, <span class="dv">2</span>))</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>all_data[all_data<span class="sc">$</span>record_id <span class="sc">==</span> <span class="dv">156431</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  record_id siteid hhid childid visitdate.x gender       dob visitdate.y reltns
+1    156431    JHU  564      31   24-Sep-06      0 24-Apr-04   21-Sep-07      2
+  bodtmp appeti fever cough breath weight lengt1 lengt2 lengt3 weight_cut
+1   97.8      3     0     1      0   14.6   98.6   98.6   98.5         hi</code></pre>
+</div>
+</div>
+</section>
+<section id="exporting-data" class="level2">
+<h2 class="anchored" data-anchor-id="exporting-data">Exporting data</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Write a csv file</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(all_data, <span class="at">file=</span><span class="st">"data_out.csv"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Save it in rda or RDS format</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(all_data, <span class="at">file =</span> <span class="st">"tuesdata_tornados.rda"</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the workspace with the data</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="fu">save.image</span>(<span class="at">file=</span><span class="st">"data01.RData"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 </section>
