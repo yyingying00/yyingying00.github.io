@@ -12,7 +12,7 @@ categories: [R, shiny, flexdashboard]
 
 1. To understand the tornado trends happened through the years from 1950 to 2021
 
-2. To practice building dashboards with **flexdashboard** and **Shiny** for the BSPH course Statistical Programming Paradigms and Workflows (140.777) 
+2. To practice building dashboards with **flexdashboard** and **Shiny** for the BSPH course Statistical Programming Paradigms and Workflows
 
 
 ## Data source 
@@ -21,5 +21,6 @@ The source data comes from NOAA's National Weather Service Storm Prediction Cent
 
 ## The Link
 
-The dashboard is deployed using [shinyapps.io](https://www.shinyapps.io)   
-Access the the dashboard here: 
+The dashboard is deployed using [shinyapps.io](https://www.shinyapps.io)    
+Access the the dashboard via this link: [https://yyingying00.shinyapps.io/ustornado/](https://yyingying00.shinyapps.io/ustornado/)  
+Source code of the dashboard is stored in my [GitHub repo](https://github.com/jhu-statprogramming-fall-2023/biostat777-project4-yyingying00)

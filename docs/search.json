@@ -60,14 +60,14 @@
     "href": "projects/Dashboard/dashboard.html",
     "title": "Dashboard",
     "section": "",
-    "text": "This dashboard was created for two purposes: \n\nTo understand the tornado trends happened through the years from 1950 to 2021\nTo practice building dashboards with flexdashboard and Shiny for the BSPH course Statistical Programming Paradigms and Workflows (140.777)"
+    "text": "This dashboard was created for two purposes: \n\nTo understand the tornado trends happened through the years from 1950 to 2021\nTo practice building dashboards with flexdashboard and Shiny for the BSPH course Statistical Programming Paradigms and Workflows"
   },
   {
     "objectID": "projects/Dashboard/dashboard.html#purposes",
     "href": "projects/Dashboard/dashboard.html#purposes",
     "title": "Dashboard",
     "section": "",
-    "text": "This dashboard was created for two purposes: \n\nTo understand the tornado trends happened through the years from 1950 to 2021\nTo practice building dashboards with flexdashboard and Shiny for the BSPH course Statistical Programming Paradigms and Workflows (140.777)"
+    "text": "This dashboard was created for two purposes: \n\nTo understand the tornado trends happened through the years from 1950 to 2021\nTo practice building dashboards with flexdashboard and Shiny for the BSPH course Statistical Programming Paradigms and Workflows"
   },
   {
     "objectID": "projects/Dashboard/dashboard.html#data-source",
@@ -81,6 +81,6 @@
     "href": "projects/Dashboard/dashboard.html#the-link",
     "title": "Dashboard",
     "section": "The Link",
-    "text": "The Link\nThe dashboard is deployed using shinyapps.io\nAccess the the dashboard here:"
+    "text": "The Link\nThe dashboard is deployed using shinyapps.io\nAccess the the dashboard via this link: https://yyingying00.shinyapps.io/ustornado/\nSource code of the dashboard is stored in my GitHub repo"
   }
 ]
