@@ -17,7 +17,7 @@ about:
       text: GitHub
       href: https://github.com/yyingying00
     - text: CV
-      href: cv.pdf
+      href: resume_202301.pdf
 ---
 
 ### About
